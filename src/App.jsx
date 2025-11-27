@@ -1,18 +1,35 @@
 import styled from 'styled-components';
+import { Route, Routes } from 'react-router-dom';
 
-const Div = styled.div`
+const Content = styled.div`
+	padding-block: 120px;
+`;
+
+const H2 = styled.h2`
 	text-align: center;
-`
+`;
+
+const Header = () => <div>Header</div>
+const Footer = () => <div>Footer</div>
 
 function App() {
 
   return (
 	  <>
-		  
-		  <Div>
-			  <i className="fa fa-calendar"></i>
-			  123
-			</Div>
+		  <Header />
+		  <Content>
+			  <H2>Контент</H2>
+			  <Routes>
+				  <Route path="/" element={<div>Главная</div>} />
+				  <Route path="/login" element={<div>Авторизация</div>} />
+				  <Route path="/register" element={<div>Регистрация</div>} />
+				  <Route path="/users" element={<div>Пользователи</div>} />
+				  <Route path="/post/" element={<div>Новая статья</div>} />
+				  <Route path="/post/:postId" element={<div>Статья</div>} />
+				  <Route path="*" element={<div>Ошибка</div>} />
+			  </Routes>
+			</Content>
+		  <Footer />
 	  </>
   )
 }
