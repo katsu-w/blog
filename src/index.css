@@ -21,6 +21,11 @@ body {
 	background-color: #4a3a5e;
 }
 
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
 html,
 body,
 #root {

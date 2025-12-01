@@ -1,29 +1,57 @@
 import styled from 'styled-components';
 import { Icon } from '../../../icon/icon.jsx';
+import { Link, useNavigate } from 'react-router-dom';
 
 const RightAligned = styled.div`
 	display: flex;
 	justify-content: flex-end;
 	gap: 20px;
-`
+`;
 
-const Button = styled.button`
+const LoginButton = styled.button`
+	color: #000;
 	font-size: 24px;
 	width: 100px;
 	padding: 3px;
+	margin: 0;
+	border: none;
 	border-radius: 16px;
+	transition: 0.2s ease;
+	
+	&:hover {
+		transform: scale(1.03);
+	}
+`;
+
+const GoBackButton = styled.button`
+	&:hover {
+		cursor: pointer;
+	}
+	border: none;
+	background-color: transparent;
+	color: inherit;
+	padding: 0;
 `
 
 const ControlPanelContainer = ({ className }) => {
+	const navigate = useNavigate();
 	return (
 		<div className={className}>
 			<RightAligned>
-				<Button>Войти</Button>
+				<Link to="/login">
+					<LoginButton>Войти</LoginButton>
+				</Link>
 			</RightAligned>
 			<RightAligned>
-				<Icon name="backward"/>
-				<Icon name="file-text-o"/>
-				<Icon name="users"/>
+				<GoBackButton onClick={() => navigate(-1)}>
+					<Icon name="backward" />
+				</GoBackButton>
+				<Link to="post">
+					<Icon name="file-text-o" />
+				</Link>
+				<Link to="/users">
+					<Icon name="users" />
+				</Link>
 			</RightAligned>
 		</div>
 	);
