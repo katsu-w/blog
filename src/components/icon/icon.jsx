@@ -8,5 +8,5 @@ const IconContainer = ({ className, name }) => (
 
 export const Icon = styled(IconContainer)`
 	font-size: ${({ size = '30px'}) => size};
-	margin-right: ${({margin = '0'}) => margin};
+	margin: ${({margin = '0'}) => margin};
 `

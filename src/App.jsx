@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Route, Routes } from 'react-router-dom';
-import { Header } from './components/index.js';
+import { Header, Footer } from './components/index.js';
 
 const AppColumn = styled.div`
 	display: flex;
@@ -20,8 +20,6 @@ const H2 = styled.h2`
 	text-align: center;
 `;
 
-const Footer = () => <div>Footer</div>
-
 function App() {
 
   return (
@@ -30,7 +28,7 @@ function App() {
 		  <Content>
 			  <H2>Контент</H2>
 			  <Routes>
-				  <Route path="/" element={<div>Главная</div>} />
+				  <Route path="/" element={<div style={{height: 1000}}>Главная</div>} />
 				  <Route path="/login" element={<div>Авторизация</div>} />
 				  <Route path="/register" element={<div>Регистрация</div>} />
 				  <Route path="/users" element={<div>Пользователи</div>} />
