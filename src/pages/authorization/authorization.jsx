@@ -4,6 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { server } from '../../bff';
 import { useState } from 'react';
 import styled from 'styled-components';
+import { Input } from '../../components/UI';
 
 const authFormSchema = yup.object().shape({
 	login: yup
@@ -57,8 +58,8 @@ const AuthorizationContainer = ({ className }) => {
 		<main className={className}>
 			<h2>Авторизация</h2>
 			<form onSubmit={handleSubmit(onSubmit)}>
-				<input name="login" type="text" placeholder="Логин..." {...register('login')} />
-				<input
+				<Input name="login" type="text" placeholder="Логин..." {...register('login')} />
+				<Input
 					name="password"
 					type="password"
 					placeholder="Пароль..."

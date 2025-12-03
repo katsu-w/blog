@@ -21,6 +21,11 @@ body {
 	background-color: #4a3a5e;
 }
 
+h2 {
+	font-size: 33px;
+	font-weight: 600;
+}
+
 a {
 	text-decoration: none;
 	color: inherit;
