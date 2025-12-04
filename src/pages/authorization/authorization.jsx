@@ -4,7 +4,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { server } from '../../bff';
 import { useState } from 'react';
 import styled from 'styled-components';
-import { Input } from '../../components/UI';
+import { Button, Input } from '../../components/UI';
+import { Link } from 'react-router-dom';
 
 const authFormSchema = yup.object().shape({
 	login: yup
@@ -26,6 +27,13 @@ const authFormSchema = yup.object().shape({
 		.min(6, 'Неверно заполнен пароль. Минимальное количество символов - 6.')
 		.max(30, 'Неверно заполнен пароль. Максимальное количество символов - 30.'),
 });
+
+const StyledLink = styled(Link)`
+	text-align: center;
+	text-decoration: underline;
+	margin: 10px 0;
+	font-size: 18px;
+`;
 
 const AuthorizationContainer = ({ className }) => {
 	const {
@@ -65,8 +73,9 @@ const AuthorizationContainer = ({ className }) => {
 					placeholder="Пароль..."
 					{...register('password')}
 				/>
-				<button type="submit" disabled={!!formError}>Войти</button>
+				<Button type="submit" disabled={!!formError}>Авторизоваться</Button>
 				{errorMassage && <div>{errorMassage}</div>}
+				<StyledLink to="/register">Регистрация</StyledLink>
 			</form>
 		</main>
 	);
@@ -82,5 +91,6 @@ export const Authorization = styled(AuthorizationContainer)`
 		flex-direction: column;
 		align-items: center;
 		gap: 10px;
+		width: 320px;
 	}
 `;

@@ -7,9 +7,9 @@ const InputContainer = ({ className, ...props }) => {
 };
 
 export const Input = styled(InputContainer)`
-  padding: 8px 16px;
-	width: 350px;
-	border: 1px solid #f1f1f1;
+	padding: 8px 16px;
+	width: ${({ width = '100%' }) => width};
+	border: 1px solid #e4e4e4;
 	border-radius: 16px;
 	font-size: 25px;
 `;

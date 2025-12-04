@@ -61,6 +61,6 @@ export const Footer = styled(FooterContainer)`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	box-shadow: 0 7px 12px 9px rgba(74, 58, 94, 1);
+	box-shadow: 0 7px 12px 9px rgb(69, 69, 69);
 	background-color: #282828;
 `;

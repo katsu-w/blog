@@ -1,26 +1,12 @@
 import styled from 'styled-components';
 import { Icon } from '../../../icon/icon.jsx';
 import { Link, useNavigate } from 'react-router-dom';
+import { Button } from '../../../UI/index.js';
 
 const RightAligned = styled.div`
 	display: flex;
 	justify-content: flex-end;
 	gap: 20px;
-`;
-
-const LoginButton = styled.button`
-	color: #000;
-	font-size: 24px;
-	width: 100px;
-	padding: 3px;
-	margin: 0;
-	border: none;
-	border-radius: 16px;
-	transition: 0.2s ease;
-	
-	&:hover {
-		transform: scale(1.03);
-	}
 `;
 
 const GoBackButton = styled.button`
@@ -39,7 +25,7 @@ const ControlPanelContainer = ({ className }) => {
 		<div className={className}>
 			<RightAligned>
 				<Link to="/login">
-					<LoginButton>Войти</LoginButton>
+					<Button width="100px">Войти</Button>
 				</Link>
 			</RightAligned>
 			<RightAligned>
