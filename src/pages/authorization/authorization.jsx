@@ -4,7 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { server } from '../../bff';
 import { useState } from 'react';
 import styled from 'styled-components';
-import { Button, Input } from '../../components/UI';
+import { Button, Input, H2 } from '../../components/UI';
 import { Link } from 'react-router-dom';
 
 const authFormSchema = yup.object().shape({
@@ -32,7 +32,13 @@ const StyledLink = styled(Link)`
 	text-align: center;
 	text-decoration: underline;
 	margin: 10px 0;
-	font-size: 18px;
+`;
+
+const ErrorMassage = styled.div`
+	background-color: #fcadad;
+	border-radius: 8px;
+	padding: 10px;
+	color: #000;
 `;
 
 const AuthorizationContainer = ({ className }) => {
@@ -48,14 +54,14 @@ const AuthorizationContainer = ({ className }) => {
 		resolver: yupResolver(authFormSchema),
 	});
 
-	const [serverError, setServerError] = useState('');
+	const [serverError, setServerError] = useState(null);
 
 	const onSubmit = async ({ login, password }) => {
 		await server.authorize(login, password).then(({ error, res }) => {
 			if (error) {
 				setServerError(`Ошибка запроса: ${error}`);
 			}
-			console.log(res);
+			console.log('res', res);
 		});
 	};
 
@@ -64,17 +70,24 @@ const AuthorizationContainer = ({ className }) => {
 
 	return (
 		<main className={className}>
-			<h2>Авторизация</h2>
+			<H2>Авторизация</H2>
 			<form onSubmit={handleSubmit(onSubmit)}>
-				<Input name="login" type="text" placeholder="Логин..." {...register('login')} />
+				<Input
+					name="login"
+					type="text"
+					placeholder="Логин..."
+					{...register('login', { onChange: () => setServerError(null) })}
+				/>
 				<Input
 					name="password"
 					type="password"
 					placeholder="Пароль..."
-					{...register('password')}
+					{...register('password', { onChange: () => setServerError(null) })}
 				/>
-				<Button type="submit" disabled={!!formError}>Авторизоваться</Button>
-				{errorMassage && <div>{errorMassage}</div>}
+				<Button type="submit" disabled={!!formError}>
+					Авторизоваться
+				</Button>
+				{errorMassage && <ErrorMassage>{errorMassage}</ErrorMassage>}
 				<StyledLink to="/register">Регистрация</StyledLink>
 			</form>
 		</main>
@@ -85,12 +98,13 @@ export const Authorization = styled(AuthorizationContainer)`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	
+
 	& > form {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		gap: 10px;
 		width: 320px;
+		font-size: 18px;
 	}
 `;

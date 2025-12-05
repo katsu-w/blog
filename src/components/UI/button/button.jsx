@@ -11,7 +11,7 @@ const ButtonContainer = ({ children, className, ...props }) => {
 export const Button = styled(ButtonContainer)`
 	color: #000;
 	font-size: 24px;
-	width: ${({width = '100%'}) => width};
+	width: ${({ width = '100%' }) => width};
 	padding: 3px;
 	margin: 0;
 	border: none;
@@ -20,5 +20,9 @@ export const Button = styled(ButtonContainer)`
 	
 	&:hover {
 		transform: scale(1.03);
+	}
+	
+	&:disabled {
+		color: #bababa;
 	}
 `;
