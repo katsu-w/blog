@@ -6,6 +6,8 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { Button, Input, H2 } from '../../components/UI';
 import { Link } from 'react-router-dom';
+import { setUser } from '../../actions';
+import { useDispatch } from 'react-redux';
 
 const authFormSchema = yup.object().shape({
 	login: yup
@@ -56,12 +58,16 @@ const AuthorizationContainer = ({ className }) => {
 
 	const [serverError, setServerError] = useState(null);
 
-	const onSubmit = async ({ login, password }) => {
-		await server.authorize(login, password).then(({ error, res }) => {
+	const dispatch = useDispatch();
+	
+	const onSubmit = ({ login, password }) => {
+		server.authorize(login, password).then(({ error, res }) => {
 			if (error) {
 				setServerError(`Ошибка запроса: ${error}`);
+				return;
 			}
-			console.log('res', res);
+			
+			dispatch(setUser(res));
 		});
 	};
 

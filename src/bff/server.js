@@ -1,6 +1,6 @@
 import { getUser } from './get-user.js';
 import { addUser } from './add-user.js';
-import { createSession } from './create-session.js';
+import { sessions } from './sessions.js';
 
 export const server = {
 	async authorize(authLogin, authPassword) {
@@ -19,10 +19,17 @@ export const server = {
 				res: null,
 			};
 		}
-
+		
+		const { id, login, role_id } = user;
+		
 		return {
 			error: null,
-			res: createSession(user.role_id),
+			res: {
+				id: id,
+				login: login,
+				roleId: role_id,
+				session: sessions.create(user),
+			}
 		};
 	},
 	async register(regLogin, regPassword) {
@@ -37,10 +44,15 @@ export const server = {
 
 		await addUser(regLogin, regPassword);
 		
-
+		
 		return {
 			error: null,
-			res: createSession(user.role_id),
+			res: {
+				id: user.id,
+				login: user.login,
+				roleId: user.role_id,
+				session: sessions.create(user),
+			}
 		};
 	},
 };
