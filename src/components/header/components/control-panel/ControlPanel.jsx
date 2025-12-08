@@ -2,36 +2,62 @@ import styled from 'styled-components';
 import { Icon } from '../../../icon/icon.jsx';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '../../../UI/index.js';
+import { ROLE } from '../../../../constants/index.js';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+	selectUserLogin,
+	selectUserRole,
+	selectUserSession,
+} from '../../../../selectors';
+import { logout } from '../../../../actions';
 
 const RightAligned = styled.div`
 	display: flex;
 	justify-content: flex-end;
+	align-items: center;
 	gap: 20px;
 `;
 
-const GoBackButton = styled.button`
+const ButtonIcon = styled.button`
 	&:hover {
 		cursor: pointer;
 	}
+	
 	border: none;
 	background-color: transparent;
 	color: inherit;
 	padding: 0;
-`
+`;
 
 const ControlPanelContainer = ({ className }) => {
 	const navigate = useNavigate();
+	
+	const dispatch = useDispatch();
+	
+	const roleId = useSelector(selectUserRole);
+	const login = useSelector(selectUserLogin);
+	const session = useSelector(selectUserSession);
+	
 	return (
 		<div className={className}>
 			<RightAligned>
-				<Link to="/login">
-					<Button width="100px">Войти</Button>
-				</Link>
+				{roleId === ROLE.GUEST ? (
+					<Link to="/login">
+						<Button width="100px">Войти</Button>
+					</Link>
+				) : (
+					<>
+						<div>{login}</div>
+						<ButtonIcon onClick={() => dispatch(logout(session))}>
+							<Icon name="sign-out" />
+						</ButtonIcon>
+					</>
+				)}
 			</RightAligned>
 			<RightAligned>
-				<GoBackButton onClick={() => navigate(-1)}>
+				<ButtonIcon onClick={() => navigate(-1)}>
 					<Icon name="backward" />
-				</GoBackButton>
+				</ButtonIcon>
 				<Link to="post">
 					<Icon name="file-text-o" />
 				</Link>

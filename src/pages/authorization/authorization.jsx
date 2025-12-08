@@ -55,9 +55,9 @@ const AuthorizationContainer = ({ className }) => {
 		},
 		resolver: yupResolver(authFormSchema),
 	});
-
+	
 	const [serverError, setServerError] = useState(null);
-
+	
 	const dispatch = useDispatch();
 	
 	const onSubmit = ({ login, password }) => {
@@ -70,10 +70,10 @@ const AuthorizationContainer = ({ className }) => {
 			dispatch(setUser(res));
 		});
 	};
-
+	
 	const formError = errors?.login?.message || errors?.password?.message;
 	const errorMassage = formError || serverError;
-
+	
 	return (
 		<main className={className}>
 			<H2>Авторизация</H2>
@@ -90,7 +90,10 @@ const AuthorizationContainer = ({ className }) => {
 					placeholder="Пароль..."
 					{...register('password', { onChange: () => setServerError(null) })}
 				/>
-				<Button type="submit" disabled={!!formError}>
+				<Button
+					type="submit"
+					disabled={!!formError}
+				>
 					Авторизоваться
 				</Button>
 				{errorMassage && <ErrorMassage>{errorMassage}</ErrorMassage>}
@@ -104,7 +107,7 @@ export const Authorization = styled(AuthorizationContainer)`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-
+	
 	& > form {
 		display: flex;
 		flex-direction: column;
