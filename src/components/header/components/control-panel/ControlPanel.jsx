@@ -29,6 +29,11 @@ const ButtonIcon = styled.button`
 	padding: 0;
 `;
 
+const UserName = styled.span`
+	font-size: 18px;
+	font-weight: bold;
+`;
+
 const ControlPanelContainer = ({ className }) => {
 	const navigate = useNavigate();
 	
@@ -47,7 +52,7 @@ const ControlPanelContainer = ({ className }) => {
 					</Link>
 				) : (
 					<>
-						<div>{login}</div>
+						<UserName>{login}</UserName>
 						<ButtonIcon onClick={() => dispatch(logout(session))}>
 							<Icon name="sign-out" />
 						</ButtonIcon>
