@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Route, Routes } from 'react-router-dom';
 import { Header, Footer } from './components/index.js';
-import { Authorization } from './pages';
+import { Authorization, Registration } from './pages';
 
 const AppColumn = styled.div`
 	display: flex;
@@ -11,31 +11,51 @@ const AppColumn = styled.div`
 	height: 100%;
 	margin: 0 auto;
 	background-color: #282828;
-`
+`;
 
 const Content = styled.div`
 	padding-block: 120px;
 `;
 
 function App() {
-
-  return (
-	  <AppColumn>
-		  <Header />
-		  <Content>
-			  <Routes>
-				  <Route path="/" element={<div style={{height: 1000}}>Главная</div>} />
-				  <Route path="/login" element={<Authorization />} />
-				  <Route path="/register" element={<div>Регистрация</div>} />
-				  <Route path="/users" element={<div>Пользователи</div>} />
-				  <Route path="/post/" element={<div>Новая статья</div>} />
-				  <Route path="/post/:postId" element={<div>Статья</div>} />
-				  <Route path="*" element={<div>Ошибка</div>} />
-			  </Routes>
+	return (
+		<AppColumn>
+			<Header />
+			<Content>
+				<Routes>
+					<Route
+						path="/"
+						element={<div style={{ height: 1000 }}>Главная</div>}
+					/>
+					<Route
+						path="/login"
+						element={<Authorization />}
+					/>
+					<Route
+						path="/register"
+						element={<Registration />}
+					/>
+					<Route
+						path="/users"
+						element={<div>Пользователи</div>}
+					/>
+					<Route
+						path="/post/"
+						element={<div>Новая статья</div>}
+					/>
+					<Route
+						path="/post/:postId"
+						element={<div>Статья</div>}
+					/>
+					<Route
+						path="*"
+						element={<div>Ошибка</div>}
+					/>
+				</Routes>
 			</Content>
-		  <Footer />
-	  </AppColumn>
-  )
+			<Footer />
+		</AppColumn>
+	);
 }
 
-export default App
+export default App;
