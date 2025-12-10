@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Route, Routes } from 'react-router-dom';
 import { Header, Footer } from './components/index.js';
 import { Authorization, Registration } from './pages';
+import { Users } from './pages/users/users.jsx';
 
 const AppColumn = styled.div`
 	display: flex;
@@ -37,7 +38,7 @@ function App() {
 					/>
 					<Route
 						path="/users"
-						element={<div>Пользователи</div>}
+						element={<Users />}
 					/>
 					<Route
 						path="/post/"
