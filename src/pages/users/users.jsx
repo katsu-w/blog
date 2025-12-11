@@ -1,66 +1,51 @@
 import styled from 'styled-components';
 import { H2 } from '../../components/UI/index.js';
-import { Icon } from '../../components/icon/icon.jsx';
-import { useDispatch } from 'react-redux';
-import { ROLE } from '../../constants/index.js';
+import { TableRow, UserRow } from './components/index.js';
+
+const Table = styled.div`
+	width: 60%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+`;
 
 const UsersContainer = ({ className }) => {
-	const users = [];
-	const roles = [];
-	
-	const dispatch = useDispatch();
+	const users = [
+		{
+			id: '001',
+			login: 'login',
+			registeredAt: 'register',
+			roleId: 2,
+		},
+	];
 	
 	const onRoleChange = (role) => {
-	
 	};
 	
 	return (
 		<main className={className}>
 			<H2>Пользователи</H2>
-			<div>
-				<div className="table-header">
-					<div>Логин</div>
-					<div>Дата регистрации</div>
-					<div>Роль</div>
-				</div>
-				{users.map(({
-					            id: userId,
-					            login,
-					            registeredAt,
-					            roleId: userRoleId,
-				            }) => (
-					<div
-						key={userId}
-						className="table-row"
-					>
-						<div className="user-data">
-							<div className="login-column">{login}</div>
-							<div className="registered-at-column">{registeredAt}</div>
-							<div className="role-column">
-								<select
-									name="role"
-									value={userRoleId}
-									// onChange={}
-								>
-									{roles.map(({ id: roleId, name: roleName }) => (
-										<option key={roleId}>{roleName}</option>
-									))}
-								</select>
-								<Icon
-									name="floppy-o"
-									onClick={() => dispatch(/* TODO */)}
-								/>
-							</div>
-						</div>
-						<Icon
-							name="trash-o"
-							onClick={() => dispatch(/* TODO */)}
-						/>
-					</div>
+			<Table>
+				<TableRow>
+					<div className="login-column">Логин</div>
+					<div className="registered-at-column">Дата регистрации</div>
+					<div className="role-column">Роль</div>
+				</TableRow>
+				{users.map(({ id, login, registeredAt, roleId }) => (
+					<UserRow
+						key={id}
+						login={login}
+						registeredAt={registeredAt}
+						roleId={roleId}
+					/>
 				))}
-			</div>
+			</Table>
 		</main>
 	);
 };
 
-export const Users = styled(UsersContainer)``;
+export const Users = styled(UsersContainer)`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+`;
