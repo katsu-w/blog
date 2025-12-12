@@ -3,7 +3,7 @@ import { H2 } from '../../components/UI/index.js';
 import { TableRow, UserRow } from './components/index.js';
 
 const Table = styled.div`
-	width: 60%;
+	max-width: 77%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -16,8 +16,14 @@ const UsersContainer = ({ className }) => {
 		{
 			id: '001',
 			login: 'login',
-			registeredAt: 'register',
-			roleId: 2,
+			registeredAt: '2053-12-31 13:54',
+			roleId: 1,
+		},
+		{
+			id: '002',
+			login: 'katsu',
+			registeredAt: '2053-12-31 13:54',
+			roleId: 0,
 		},
 	];
 	

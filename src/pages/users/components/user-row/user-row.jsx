@@ -9,17 +9,20 @@ const UserRowContainer = ({
 	                          registeredAt,
 	                          roleId: userRoleId,
                           }) => {
-	const roles = [{ id: 0, name: 'admin' }, {
-		id: 1,
-		name: 'moderator',
-	}, { id: 2, name: 'user' }];
+	const roles = [
+		{ id: 0, name: 'Администратор' },
+		{
+			id: 1,
+			name: 'Модератор',
+		},
+		{ id: 2, name: 'Читатель' },
+		{ id: 3, name: 'Гость' },
+	];
 	
 	const dispatch = useDispatch();
 	
 	return (
-		<div
-			className={className}
-		>
+		<div className={className}>
 			<TableRow className="user-data">
 				<div className="login-column">{login}</div>
 				<div className="registered-at-column">{registeredAt}</div>
@@ -40,7 +43,7 @@ const UserRowContainer = ({
 				</div>
 			</TableRow>
 			<Icon
-				className="delete-user-icon"
+				padding="4px 12px"
 				name="trash-o"
 				onClick={() => dispatch(/* TODO */)}
 			/>
@@ -55,15 +58,13 @@ export const UserRow = styled(UserRowContainer)`
 	
 	& .user-data {
 		border: 1px solid #e4e4e4;
-		padding-block: 10px;
-	}
-	
-	& .delete-user-icon {
-		margin-inline: 12px;
+		padding-block: 7px;
 	}
 	
 	& select {
+		width: 100%;
 		border-radius: 8px;
 		font-size: 25px;
+		padding: 4px;
 	}
 `;
