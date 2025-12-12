@@ -9,7 +9,10 @@ const UserRowContainer = ({
 	                          registeredAt,
 	                          roleId: userRoleId,
                           }) => {
-	const roles = [];
+	const roles = [{ id: 0, name: 'admin' }, {
+		id: 1,
+		name: 'moderator',
+	}, { id: 2, name: 'user' }];
 	
 	const dispatch = useDispatch();
 	
@@ -48,12 +51,19 @@ const UserRowContainer = ({
 export const UserRow = styled(UserRowContainer)`
 	display: flex;
 	width: 100%;
+	align-items: center;
 	
 	& .user-data {
 		border: 1px solid #e4e4e4;
+		padding-block: 10px;
 	}
 	
 	& .delete-user-icon {
 		margin-inline: 12px;
+	}
+	
+	& select {
+		border-radius: 8px;
+		font-size: 25px;
 	}
 `;

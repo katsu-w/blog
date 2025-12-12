@@ -7,6 +7,8 @@ const Table = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	gap: 12px;
+	font-size: 25px;
 `;
 
 const UsersContainer = ({ className }) => {
