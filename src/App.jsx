@@ -14,7 +14,7 @@ const AppColumn = styled.div`
 	background-color: #282828;
 `;
 
-const Content = styled.div`
+const Page = styled.div`
 	padding-block: 120px;
 `;
 
@@ -22,7 +22,7 @@ function App() {
 	return (
 		<AppColumn>
 			<Header />
-			<Content>
+			<Page>
 				<Routes>
 					<Route
 						path="/"
@@ -53,7 +53,7 @@ function App() {
 						element={<div>Ошибка</div>}
 					/>
 				</Routes>
-			</Content>
+			</Page>
 			<Footer />
 		</AppColumn>
 	);

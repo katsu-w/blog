@@ -1,4 +1,4 @@
-import { Icon } from '../../../../components/icon/icon.jsx';
+import { Icon } from '../../../../components/index.js';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { TableRow } from '../table-row/table-row.jsx';
@@ -8,16 +8,8 @@ const UserRowContainer = ({
 	                          login,
 	                          registeredAt,
 	                          roleId: userRoleId,
+	                          roles,
                           }) => {
-	const roles = [
-		{ id: 0, name: 'Администратор' },
-		{
-			id: 1,
-			name: 'Модератор',
-		},
-		{ id: 2, name: 'Читатель' },
-		{ id: 3, name: 'Гость' },
-	];
 	
 	const dispatch = useDispatch();
 	
@@ -32,8 +24,8 @@ const UserRowContainer = ({
 						value={userRoleId}
 						// onChange={}
 					>
-						{roles.map(({ id: roleId, name: roleName }) => (
-							<option key={roleId}>{roleName}</option>
+						{roles.map(({ name: roleName }) => (
+							<option key={roleName}>{roleName}</option>
 						))}
 					</select>
 					<Icon

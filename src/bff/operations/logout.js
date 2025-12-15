@@ -1,5 +1,5 @@
 import { sessions } from '../sessions.js';
 
-export const logout = async (session) => {
-	sessions.remove(session);
+export const logout = async (userSession) => {
+	sessions.remove(userSession);
 };
