@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Route, Routes } from 'react-router-dom';
 import { Header, Footer } from './components/index.js';
 import { Authorization, Registration } from './pages';
+import { Users } from './pages/users/users.jsx';
 
 const AppColumn = styled.div`
 	display: flex;
@@ -13,7 +14,7 @@ const AppColumn = styled.div`
 	background-color: #282828;
 `;
 
-const Content = styled.div`
+const Page = styled.div`
 	padding-block: 120px;
 `;
 
@@ -21,7 +22,7 @@ function App() {
 	return (
 		<AppColumn>
 			<Header />
-			<Content>
+			<Page>
 				<Routes>
 					<Route
 						path="/"
@@ -37,7 +38,7 @@ function App() {
 					/>
 					<Route
 						path="/users"
-						element={<div>Пользователи</div>}
+						element={<Users />}
 					/>
 					<Route
 						path="/post/"
@@ -52,7 +53,7 @@ function App() {
 						element={<div>Ошибка</div>}
 					/>
 				</Routes>
-			</Content>
+			</Page>
 			<Footer />
 		</AppColumn>
 	);

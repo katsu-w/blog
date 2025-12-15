@@ -12,7 +12,7 @@ import { selectUserRole } from '../../selectors/index.js';
 import { ROLE } from '../../constants/index.js';
 import {
 	AuthFormError,
-} from '../../components/auth-form-error/auth-form-error.jsx';
+} from '../../components/index.js';
 import { useResetForm } from '../../hooks/index.js';
 
 const authFormSchema = yup.object().shape({
