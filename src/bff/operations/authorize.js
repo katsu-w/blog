@@ -11,21 +11,21 @@ export const authorize = async (authLogin, authPassword) => {
 		};
 	}
 	
-	if (authPassword !== user.password) {
+	const { id, login, password, roleId } = user;
+	
+	if (authPassword !== password) {
 		return {
 			error: 'Неверный пароль',
 			res: null,
 		};
 	}
 	
-	const { id, login, role_id } = user;
-	
 	return {
 		error: null,
 		res: {
 			id: id,
 			login: login,
-			roleId: role_id,
+			roleId: roleId,
 			session: sessions.create(user),
 		},
 	};
