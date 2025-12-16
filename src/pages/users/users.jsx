@@ -35,7 +35,6 @@ const UsersContainer = ({ className }) => {
 			},
 		);
 	}, [requestServer]);
-	
 	return (
 		<main className={className}>
 			<Content error={errorMessage}>
@@ -48,11 +47,12 @@ const UsersContainer = ({ className }) => {
 					</TableRow>
 					{users.map(({ id, login, registeredAt, roleId }) => (
 						<UserRow
-							roleId={roleId}
 							key={id}
+							id={id}
 							login={login}
+							roleId={roleId}
 							registeredAt={registeredAt}
-							roles={roles.filter(({ roleId }) => roleId !== ROLE.GUEST)}
+							roles={roles.filter(({ role_id }) => role_id !== ROLE.GUEST)}
 						/>
 					))}
 				</Table>

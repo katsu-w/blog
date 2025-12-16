@@ -1,25 +1,32 @@
 import { Icon } from '../../../../components/index.js';
-import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { TableRow } from '../table-row/table-row.jsx';
 import { useState } from 'react';
+import { useServerRequest } from '../../../../hooks/index.js';
 
 const UserRowContainer = ({
 	                          className,
+	                          id,
 	                          login,
 	                          registeredAt,
 	                          roleId: userRoleId,
 	                          roles,
                           }) => {
+	const [initialRoleId, setInitialRoleId] = useState(userRoleId);
 	const [selectedRoleId, setSelectedRoleId] = useState(userRoleId);
+	const requestServer = useServerRequest();
 	
-	const dispatch = useDispatch();
+	const onRoleSave = (userId, newUserRoleId) => {
+		requestServer('updateUserRole', { userId, newUserRoleId }).then(() => {
+			setInitialRoleId(newUserRoleId);
+		});
+	};
 	
 	const onRoleChange = ({ target }) => {
 		setSelectedRoleId(Number(target.value));
 	};
 	
-	const isSaveButtonDisabled = selectedRoleId === userRoleId;
+	const isSaveButtonDisabled = selectedRoleId === initialRoleId;
 	
 	return (
 		<div className={className}>
@@ -32,7 +39,7 @@ const UserRowContainer = ({
 						value={selectedRoleId}
 						onChange={onRoleChange}
 					>
-						{roles.map(({ id: roleId, name: roleName }) => (
+						{roles.map(({ role_id: roleId, name: roleName }) => (
 							<option
 								key={roleId}
 								value={roleId}
@@ -41,11 +48,10 @@ const UserRowContainer = ({
 							</option>
 						))}
 					</select>
-					<div>
+					<div onClick={() => onRoleSave(id, selectedRoleId)}>
 						<Icon
 							disabled={isSaveButtonDisabled}
 							name="floppy-o"
-							onClick={() => dispatch(/* TODO */)}
 						/>
 					</div>
 				</div>
@@ -53,7 +59,8 @@ const UserRowContainer = ({
 			<Icon
 				padding="4px 12px"
 				name="trash-o"
-				onClick={() => dispatch(/* TODO */)}
+				onClick={() => {
+				}}
 			/>
 		</div>
 	);
