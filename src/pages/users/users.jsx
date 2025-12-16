@@ -23,10 +23,7 @@ const UsersContainer = ({ className }) => {
 	const requestServer = useServerRequest();
 	
 	useEffect(() => {
-		Promise.all([
-			requestServer('fetchUsers'),
-			requestServer('fetchRoles'),
-		]).then(
+		Promise.all([requestServer('fetchUsers'), requestServer('fetchRoles')]).then(
 			([usersRes, rolesRes]) => {
 				if (usersRes.error || rolesRes.error) {
 					setErrorMessage(usersRes.error || rolesRes.error);
@@ -49,17 +46,12 @@ const UsersContainer = ({ className }) => {
 						<div className="registered-at-column">Дата регистрации</div>
 						<div className="role-column">Роль</div>
 					</TableRow>
-					{users.map(({
-						            id,
-						            login,
-						            registeredAt,
-						            roleId,
-					            }) => (
+					{users.map(({ id, login, registeredAt, roleId }) => (
 						<UserRow
+							roleId={roleId}
 							key={id}
 							login={login}
 							registeredAt={registeredAt}
-							roleId={roleId}
 							roles={roles.filter(({ roleId }) => roleId !== ROLE.GUEST)}
 						/>
 					))}

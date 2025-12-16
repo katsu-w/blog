@@ -36,7 +36,9 @@ const UserRowContainer = ({
 							<option
 								key={roleId}
 								value={roleId}
-							>{roleName}</option>
+							>
+								{roleName}
+							</option>
 						))}
 					</select>
 					<div>
