@@ -3,7 +3,7 @@
     {
       "id": "001",
       "login": "katsu",
-      "password": "sadsadsad",
+      "password": "sadsad",
       "registered_at": "2025-11-25 20:31",
       "role_id": 0
     },
@@ -19,25 +19,36 @@
       "login": "limina",
       "password": "minmin",
       "registered_at": "2025-12-09 20:14",
+      "role_id": 1
+    },
+    {
+      "id": "4ffd",
+      "login": "asdasdasdasd",
+      "password": "asdasd",
+      "registered_at": "2025-12-16 19:42",
       "role_id": 2
     }
   ],
   "roles": [
     {
-      "id": "0",
-      "name": "Администратор"
+      "role_id": 0,
+      "name": "Администратор",
+      "id": "dc50"
     },
     {
-      "id": "1",
-      "name": "Модератор"
+      "role_id": 1,
+      "name": "Модератор",
+      "id": "19ff"
     },
     {
-      "id": "2",
-      "name": "Читатель"
+      "role_id": 2,
+      "name": "Читатель",
+      "id": "6d27"
     },
     {
-      "id": "3",
-      "name": "Гость"
+      "role_id": 3,
+      "name": "Гость",
+      "id": "1c8f"
     }
   ],
   "posts": [

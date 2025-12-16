@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 
 const TableRowContainer = ({ children, className }) => (
-	<div className={className}>
-		{children}
-	</div>
+	<div className={className}>{children}</div>
 );
 
 export const TableRow = styled(TableRowContainer)`
@@ -11,21 +9,25 @@ export const TableRow = styled(TableRowContainer)`
 	align-items: center;
 	width: 100%;
 	
-	& div {
+	& .login-column,
+	.registered-at-column,
+	.role-column {
 		padding-inline: 10px;
 	}
 	
 	& .login-column {
-		width: 172px;
+		width: 180px;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
 	}
 	
 	& .registered-at-column {
 		width: 230px;
 	}
 	
-	
 	& .role-column {
-		width: 310px;
+		width: 250px;
 		display: flex;
 		gap: 16px;
 		padding-right: 16px;

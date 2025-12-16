@@ -1,17 +1,33 @@
 import { Icon } from '../../../../components/index.js';
-import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { TableRow } from '../table-row/table-row.jsx';
+import { useState } from 'react';
+import { useServerRequest } from '../../../../hooks/index.js';
 
 const UserRowContainer = ({
 	                          className,
+	                          id,
 	                          login,
 	                          registeredAt,
 	                          roleId: userRoleId,
 	                          roles,
+	                          onUserRemove,
                           }) => {
+	const [initialRoleId, setInitialRoleId] = useState(userRoleId);
+	const [selectedRoleId, setSelectedRoleId] = useState(userRoleId);
+	const requestServer = useServerRequest();
 	
-	const dispatch = useDispatch();
+	const onRoleSave = (userId, newUserRoleId) => {
+		requestServer('updateUserRole', { userId, newUserRoleId }).then(() => {
+			setInitialRoleId(newUserRoleId);
+		});
+	};
+	
+	const onRoleChange = ({ target }) => {
+		setSelectedRoleId(Number(target.value));
+	};
+	
+	const isSaveButtonDisabled = selectedRoleId === initialRoleId;
 	
 	return (
 		<div className={className}>
@@ -21,23 +37,29 @@ const UserRowContainer = ({
 				<div className="role-column">
 					<select
 						name="role"
-						value={userRoleId}
-						// onChange={}
+						value={selectedRoleId}
+						onChange={onRoleChange}
 					>
-						{roles.map(({ name: roleName }) => (
-							<option key={roleName}>{roleName}</option>
+						{roles.map(({ role_id: roleId, name: roleName }) => (
+							<option
+								key={roleId}
+								value={roleId}
+							>
+								{roleName}
+							</option>
 						))}
 					</select>
 					<Icon
+						disabled={isSaveButtonDisabled}
+						onClick={() => onRoleSave(id, selectedRoleId)}
 						name="floppy-o"
-						onClick={() => dispatch(/* TODO */)}
 					/>
 				</div>
 			</TableRow>
 			<Icon
 				padding="4px 12px"
 				name="trash-o"
-				onClick={() => dispatch(/* TODO */)}
+				onClick={onUserRemove}
 			/>
 		</div>
 	);
@@ -56,7 +78,7 @@ export const UserRow = styled(UserRowContainer)`
 	& select {
 		width: 100%;
 		border-radius: 8px;
-		font-size: 25px;
+		font-size: 18px;
 		padding: 4px;
 	}
 `;

@@ -4,6 +4,7 @@ import { TableRow, UserRow } from './components';
 import { useServerRequest } from '../../hooks';
 import { useEffect, useState } from 'react';
 import { Content } from '../../components/index.js';
+import { ROLE } from '../../constants/index.js';
 
 const Table = styled.div`
 	max-width: 77%;
@@ -11,21 +12,19 @@ const Table = styled.div`
 	flex-direction: column;
 	align-items: center;
 	gap: 12px;
-	font-size: 25px;
+	font-size: 18px;
 `;
 
 const UsersContainer = ({ className }) => {
 	const [users, setUsers] = useState([]);
 	const [roles, setRoles] = useState([]);
 	const [errorMessage, setErrorMessage] = useState('');
+	const [shouldUpdateUserList, setShouldUpdateUserList] = useState(false);
 	
 	const requestServer = useServerRequest();
 	
 	useEffect(() => {
-		Promise.all([
-			requestServer('fetchUsers'),
-			requestServer('fetchRoles'),
-		]).then(
+		Promise.all([requestServer('fetchUsers'), requestServer('fetchRoles')]).then(
 			([usersRes, rolesRes]) => {
 				if (usersRes.error || rolesRes.error) {
 					setErrorMessage(usersRes.error || rolesRes.error);
@@ -36,17 +35,13 @@ const UsersContainer = ({ className }) => {
 				setRoles(rolesRes.res);
 			},
 		);
-		
-		requestServer('fetchRoles').then(({ rolesError, res }) => {
-			if (rolesError) {
-				return;
-			}
-			
-			setRoles(res);
+	}, [requestServer, shouldUpdateUserList]);
+	
+	const onUserRemove = (userId) => {
+		requestServer('removeUser', userId).then(() => {
+			setShouldUpdateUserList(!shouldUpdateUserList);
 		});
-		
-		requestServer('fetchUsers');
-	}, [requestServer]);
+	};
 	
 	return (
 		<main className={className}>
@@ -61,10 +56,12 @@ const UsersContainer = ({ className }) => {
 					{users.map(({ id, login, registeredAt, roleId }) => (
 						<UserRow
 							key={id}
+							id={id}
 							login={login}
-							registeredAt={registeredAt}
 							roleId={roleId}
-							roles={roles}
+							registeredAt={registeredAt}
+							roles={roles.filter(({ role_id }) => role_id !== ROLE.GUEST)}
+							onUserRemove={() => onUserRemove(id)}
 						/>
 					))}
 				</Table>
