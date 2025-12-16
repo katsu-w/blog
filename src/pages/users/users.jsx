@@ -4,6 +4,7 @@ import { TableRow, UserRow } from './components';
 import { useServerRequest } from '../../hooks';
 import { useEffect, useState } from 'react';
 import { Content } from '../../components/index.js';
+import { ROLE } from '../../constants/index.js';
 
 const Table = styled.div`
 	max-width: 77%;
@@ -11,7 +12,7 @@ const Table = styled.div`
 	flex-direction: column;
 	align-items: center;
 	gap: 12px;
-	font-size: 25px;
+	font-size: 18px;
 `;
 
 const UsersContainer = ({ className }) => {
@@ -59,7 +60,7 @@ const UsersContainer = ({ className }) => {
 							login={login}
 							registeredAt={registeredAt}
 							roleId={roleId}
-							roles={roles}
+							roles={roles.filter(({ roleId }) => roleId !== ROLE.GUEST)}
 						/>
 					))}
 				</Table>

@@ -2,6 +2,7 @@ import { Icon } from '../../../../components/index.js';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { TableRow } from '../table-row/table-row.jsx';
+import { useState } from 'react';
 
 const UserRowContainer = ({
 	                          className,
@@ -10,8 +11,15 @@ const UserRowContainer = ({
 	                          roleId: userRoleId,
 	                          roles,
                           }) => {
+	const [selectedRoleId, setSelectedRoleId] = useState(userRoleId);
 	
 	const dispatch = useDispatch();
+	
+	const onRoleChange = ({ target }) => {
+		setSelectedRoleId(Number(target.value));
+	};
+	
+	const isSaveButtonDisabled = selectedRoleId === userRoleId;
 	
 	return (
 		<div className={className}>
@@ -21,20 +29,23 @@ const UserRowContainer = ({
 				<div className="role-column">
 					<select
 						name="role"
-						value={roles[userRoleId].name}
-						// onChange={}
+						value={selectedRoleId}
+						onChange={onRoleChange}
 					>
 						{roles.map(({ id: roleId, name: roleName }) => (
 							<option
 								key={roleId}
-								value={roleName}
+								value={roleId}
 							>{roleName}</option>
 						))}
 					</select>
-					<Icon
-						name="floppy-o"
-						onClick={() => dispatch(/* TODO */)}
-					/>
+					<div>
+						<Icon
+							disabled={isSaveButtonDisabled}
+							name="floppy-o"
+							onClick={() => dispatch(/* TODO */)}
+						/>
+					</div>
 				</div>
 			</TableRow>
 			<Icon
@@ -59,7 +70,7 @@ export const UserRow = styled(UserRowContainer)`
 	& select {
 		width: 100%;
 		border-radius: 8px;
-		font-size: 25px;
+		font-size: 18px;
 		padding: 4px;
 	}
 `;
