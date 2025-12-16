@@ -11,6 +11,7 @@ const UserRowContainer = ({
 	                          registeredAt,
 	                          roleId: userRoleId,
 	                          roles,
+	                          onUserRemove,
                           }) => {
 	const [initialRoleId, setInitialRoleId] = useState(userRoleId);
 	const [selectedRoleId, setSelectedRoleId] = useState(userRoleId);
@@ -48,19 +49,17 @@ const UserRowContainer = ({
 							</option>
 						))}
 					</select>
-					<div onClick={() => onRoleSave(id, selectedRoleId)}>
-						<Icon
-							disabled={isSaveButtonDisabled}
-							name="floppy-o"
-						/>
-					</div>
+					<Icon
+						disabled={isSaveButtonDisabled}
+						onClick={() => onRoleSave(id, selectedRoleId)}
+						name="floppy-o"
+					/>
 				</div>
 			</TableRow>
 			<Icon
 				padding="4px 12px"
 				name="trash-o"
-				onClick={() => {
-				}}
+				onClick={onUserRemove}
 			/>
 		</div>
 	);
