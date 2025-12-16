@@ -21,11 +21,14 @@ const UserRowContainer = ({
 				<div className="role-column">
 					<select
 						name="role"
-						value={userRoleId}
+						value={roles[userRoleId].name}
 						// onChange={}
 					>
-						{roles.map(({ name: roleName }) => (
-							<option key={roleName}>{roleName}</option>
+						{roles.map(({ id: roleId, name: roleName }) => (
+							<option
+								key={roleId}
+								value={roleName}
+							>{roleName}</option>
 						))}
 					</select>
 					<Icon

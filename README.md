@@ -1,2 +1,2 @@
 database - \
-json-server --watch src/db.json
+json-server src/db.json
