@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Route, Routes } from 'react-router-dom';
 import { Header, Footer } from './components/index.js';
-import { Authorization, Registration } from './pages';
+import { Authorization, Post, Registration } from './pages';
 import { Users } from './pages/users/users.jsx';
 
 const AppColumn = styled.div`
@@ -45,8 +45,8 @@ function App() {
 						element={<div>Новая статья</div>}
 					/>
 					<Route
-						path="/post/:postId"
-						element={<div>Статья</div>}
+						path="/post/:id"
+						element={<Post />}
 					/>
 					<Route
 						path="*"
