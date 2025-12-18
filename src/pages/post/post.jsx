@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { H2 } from '../../components/UI';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Comments, PostContent } from './components';
@@ -27,6 +26,7 @@ const PostContainer = ({ className }) => {
 };
 
 export const Post = styled(PostContainer)`
-	display: flex;
-	flex-direction: column;
+	padding-inline: 80px;
+	margin-block: 40px;
+	font-size: 18px;
 `;

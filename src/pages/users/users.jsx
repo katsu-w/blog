@@ -47,24 +47,29 @@ const UsersContainer = ({ className }) => {
 		<main className={className}>
 			<Content error={errorMessage}>
 				<H2>Пользователи</H2>
-				<Table>
-					<TableRow>
-						<div className="login-column">Логин</div>
-						<div className="registered-at-column">Дата регистрации</div>
-						<div className="role-column">Роль</div>
-					</TableRow>
-					{users.map(({ id, login, registeredAt, roleId }) => (
-						<UserRow
-							key={id}
-							id={id}
-							login={login}
-							roleId={roleId}
-							registeredAt={registeredAt}
-							roles={roles.filter(({ role_id }) => role_id !== ROLE.GUEST)}
-							onUserRemove={() => onUserRemove(id)}
-						/>
-					))}
-				</Table>
+				{
+					users.length > 0 ?
+						<Table>
+							<TableRow>
+								<div className="login-column">Логин</div>
+								<div className="registered-at-column">Дата регистрации</div>
+								<div className="role-column">Роль</div>
+							</TableRow>
+							{users.map(({ id, login, registeredAt, roleId }) => (
+								<UserRow
+									key={id}
+									id={id}
+									login={login}
+									roleId={roleId}
+									registeredAt={registeredAt}
+									roles={roles.filter(({ role_id }) => role_id !== ROLE.GUEST)}
+									onUserRemove={() => onUserRemove(id)}
+								/>
+							))}
+						</Table>
+						:
+						<div>Ошибка загрузки пользователей</div>
+				}
 			</Content>
 		</main>
 	);
