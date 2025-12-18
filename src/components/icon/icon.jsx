@@ -14,8 +14,4 @@ export const Icon = styled(IconContainer)`
 	margin: ${({ margin = 'auto' }) => margin};
 	padding: ${({ padding = '0' }) => padding};
 	color: ${({ disabled }) => (disabled ? '#8e8e8e' : '#fff')};
-	
-	display: flex;
-	align-items: center;
-	justify-content: center;
 `;
