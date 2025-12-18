@@ -25,11 +25,11 @@ export const Header = styled(HeaderContainer)`
 	position: fixed;
 	top: 0;
 	height: 120px;
-	padding: 18px 40px;
+	padding: 10px 40px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	width: 1000px;
 	box-shadow: 0 -7px 12px 9px rgb(69, 69, 69);
 	background-color: #282828;
-`
+`;
