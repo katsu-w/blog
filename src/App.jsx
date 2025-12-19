@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes } from 'react-router-dom';
 import { Header, Footer } from './components/index.js';
 import { Authorization, Post, Registration } from './pages';
 import { Users } from './pages/users/users.jsx';
@@ -16,6 +16,7 @@ const AppColumn = styled.div`
 
 const Page = styled.div`
 	padding-block: 120px;
+	background-color: #282828;
 `;
 
 function App() {
@@ -26,7 +27,9 @@ function App() {
 				<Routes>
 					<Route
 						path="/"
-						element={<div style={{ height: 1000 }}>Главная</div>}
+						element={
+							<div style={{ height: 1000 }}>Главная <Link to="/post/001">asdasd</Link>
+							</div>}
 					/>
 					<Route
 						path="/login"

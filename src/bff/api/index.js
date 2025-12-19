@@ -5,3 +5,5 @@ export * from './get-roles.js';
 export * from './set-user-role.js';
 export * from './delete-user.js';
 export * from './get-post.js';
+export * from './create-comment.js';
+export * from './get-comments.js';

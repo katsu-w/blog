@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Icon } from '../../../../../../components/index.js';
 
 const CommentContainer = ({ className, id, author, content, publishedAt }) => {
-	console.log(content);
+	
 	return (
 		<div className={className}>
 			<div className="information-panel">
@@ -31,6 +31,7 @@ const CommentContainer = ({ className, id, author, content, publishedAt }) => {
 export const Comment = styled(CommentContainer)`
 	display: flex;
 	flex-direction: column;
+	background-color: #282828;
 	
 	& .information-panel {
 		display: flex;
