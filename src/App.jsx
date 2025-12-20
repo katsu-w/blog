@@ -3,6 +3,10 @@ import { Link, Route, Routes } from 'react-router-dom';
 import { Header, Footer } from './components/index.js';
 import { Authorization, Post, Registration } from './pages';
 import { Users } from './pages/users/users.jsx';
+import { useLayoutEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { setUser } from './actions/index.js';
+import { sessions } from './bff/sessions.js';
 
 const AppColumn = styled.div`
 	display: flex;
@@ -20,6 +24,21 @@ const Page = styled.div`
 `;
 
 function App() {
+	const dispatch = useDispatch();
+	
+	useLayoutEffect(() => {
+		const currentUserDataJSON = sessionStorage.getItem('userData');
+		
+		if (!currentUserDataJSON) return;
+		
+		const currentUserData = JSON.parse(currentUserDataJSON);
+		
+		dispatch(setUser({
+			...currentUserData,
+			roleId: Number(currentUserData.roleId),
+		}));
+	}, [dispatch]);
+	
 	return (
 		<AppColumn>
 			<Header />
