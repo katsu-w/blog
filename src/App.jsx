@@ -1,8 +1,12 @@
 import styled from 'styled-components';
-import { Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes } from 'react-router-dom';
 import { Header, Footer } from './components/index.js';
 import { Authorization, Post, Registration } from './pages';
 import { Users } from './pages/users/users.jsx';
+import { useLayoutEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { setUser } from './actions/index.js';
+import { sessions } from './bff/sessions.js';
 
 const AppColumn = styled.div`
 	display: flex;
@@ -16,9 +20,25 @@ const AppColumn = styled.div`
 
 const Page = styled.div`
 	padding-block: 120px;
+	background-color: #282828;
 `;
 
 function App() {
+	const dispatch = useDispatch();
+	
+	useLayoutEffect(() => {
+		const currentUserDataJSON = sessionStorage.getItem('userData');
+		
+		if (!currentUserDataJSON) return;
+		
+		const currentUserData = JSON.parse(currentUserDataJSON);
+		
+		dispatch(setUser({
+			...currentUserData,
+			roleId: Number(currentUserData.roleId),
+		}));
+	}, [dispatch]);
+	
 	return (
 		<AppColumn>
 			<Header />
@@ -26,7 +46,9 @@ function App() {
 				<Routes>
 					<Route
 						path="/"
-						element={<div style={{ height: 1000 }}>Главная</div>}
+						element={
+							<div style={{ height: 1000 }}>Главная <Link to="/post/001">asdasd</Link>
+							</div>}
 					/>
 					<Route
 						path="/login"

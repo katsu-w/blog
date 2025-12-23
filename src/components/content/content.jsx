@@ -5,6 +5,8 @@ const Div = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	
+	background-color: #282828;
 `;
 
 export const Content = ({ children, error }) =>
