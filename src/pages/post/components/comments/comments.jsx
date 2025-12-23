@@ -15,6 +15,7 @@ const CommentsContainer = ({ className, comments, postId }) => {
 	
 	const onNewCommentAdd = (userId, postId, content) => {
 		dispatch(addCommentAsync(requestServer, userId, postId, content));
+		setNewComment('');
 	};
 	
 	return (
@@ -34,13 +35,13 @@ const CommentsContainer = ({ className, comments, postId }) => {
 			</div>
 			<div className="comments">
 				{comments &&
-					comments.map(({ id, author_id, content, published_at }) => (
+					comments.map(({ id, author, content, publishedAt }) => (
 						<Comment
 							key={id}
 							id={id}
-							author={author_id}
+							author={author}
 							content={content}
-							publishedAt={published_at}
+							publishedAt={publishedAt}
 						/>
 					))
 				}
@@ -66,6 +67,13 @@ export const Comments = styled(CommentsContainer)`
 			height: 120px;
 			resize: none;
 			font-size: 18px;
+			padding: 5px;
 		}
+	}
+	
+	& .comments {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
 	}
 `;
