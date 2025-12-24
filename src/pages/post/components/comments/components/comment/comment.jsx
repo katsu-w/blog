@@ -1,7 +1,34 @@
 import styled from 'styled-components';
 import { Icon } from '../../../../../../components/index.js';
+import { useDispatch } from 'react-redux';
+import {
+	CLOSE_MODAL, openModal,
+	removeCommentAsync,
+} from '../../../../../../actions/index.js';
+import { useServerRequest } from '../../../../../../hooks/index.js';
 
-const CommentContainer = ({ className, id, author, content, publishedAt }) => {
+const CommentContainer = ({
+	                          className,
+	                          postId,
+	                          id,
+	                          author,
+	                          content,
+	                          publishedAt,
+                          }) => {
+	const dispatch = useDispatch();
+	const requestServer = useServerRequest();
+	
+	const onCommentRemove = (id) => {
+		dispatch(openModal({
+			heading: 'Удалить комментарий?',
+			onConfirm: () => {
+				dispatch(removeCommentAsync(requestServer, postId, id));
+				dispatch(CLOSE_MODAL);
+			},
+			onCancel: () => dispatch(CLOSE_MODAL),
+		}));
+		
+	};
 	
 	return (
 		<div className={className}>
@@ -31,6 +58,7 @@ const CommentContainer = ({ className, id, author, content, publishedAt }) => {
 				margin="0"
 				padding="8px 12px"
 				size="20px"
+				onClick={() => onCommentRemove(id)}
 			/>
 		</div>
 	);
@@ -56,7 +84,8 @@ export const Comment = styled(CommentContainer)`
 		justify-content: space-between;
 	}
 	
-	& .author, .published-at {
+	& .author,
+	.published-at {
 		display: flex;
 		align-items: center;
 		gap: 5px;

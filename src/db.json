@@ -124,27 +124,6 @@
       "published_at": "2025-12-18 23:20"
     },
     {
-      "id": "fb49",
-      "author_id": "001",
-      "post_id": "001",
-      "published_at": "2025-12-19 19:01",
-      "content": "asdasdsad"
-    },
-    {
-      "id": "07ee",
-      "author_id": "001",
-      "post_id": "001",
-      "published_at": "2025-12-19 19:04",
-      "content": "asdasdasd"
-    },
-    {
-      "id": "04c1",
-      "author_id": "001",
-      "post_id": "001",
-      "published_at": "2025-12-19 19:04",
-      "content": "asdasdasd"
-    },
-    {
       "id": "c25c",
       "author_id": "001",
       "post_id": "001",
@@ -157,20 +136,6 @@
       "post_id": "001",
       "published_at": "2025-12-23 15:36",
       "content": "комментарий"
-    },
-    {
-      "id": "17c1",
-      "author_id": "001",
-      "post_id": "001",
-      "published_at": "2025-12-23 15:39",
-      "content": "asdadssadsaddasdasdasd"
-    },
-    {
-      "id": "6b65",
-      "author_id": "001",
-      "post_id": "001",
-      "published_at": "2025-12-23 16:19",
-      "content": "asdasdasdasdasdSFJSMHDfgsdJKLfhsdkfjlhsdfkjdshgfAZSDKJHgfdsfjkgsdkjfhgsdkjfhgsdfjhgsdfjkzasdgfSKDJgfdsjkfhsDFjkhSJvghSDfs"
     },
     {
       "id": "26e0",
@@ -191,6 +156,17 @@
     {
       "id": "518e",
       "hash": "0.34966398583440227998409000065294094383716583251953",
+      "user": {
+        "id": "001",
+        "login": "katsu",
+        "registeredAt": "2025-11-25 20:31",
+        "roleId": 0,
+        "password": "sadsad"
+      }
+    },
+    {
+      "id": "d55a",
+      "hash": "0.61500422595926562685519911610754206776618957519531",
       "user": {
         "id": "001",
         "login": "katsu",
