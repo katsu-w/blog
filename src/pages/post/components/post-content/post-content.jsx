@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { H2 } from '../../../../components/UI/index.js';
 import { Icon } from '../../../../components/index.js';
+import { SpecialPanel } from '../special-panel/special-panel.jsx';
+import { useNavigate } from 'react-router-dom';
 
 const PostContentContainer = ({
 	                              className,
@@ -12,6 +14,7 @@ const PostContentContainer = ({
 		                              publishedAt,
 	                              },
                               }) => {
+	const navigate = useNavigate();
 	return (
 		<div className={className}>
 			<img
@@ -22,28 +25,16 @@ const PostContentContainer = ({
 				alt={title}
 			/>
 			<H2>{title}</H2>
-			<div className="special-panel">
-				<div className="published-at">
-					<Icon
-						name="calendar-o"
-						margin="0"
-						size="20px"
-					/>
-					{publishedAt}
-				</div>
-				<div className="buttons">
-					<Icon
-						name="pencil-square-o"
-						margin="0"
-						size="22px"
-					/>
-					<Icon
-						name="trash-o"
-						margin="0"
-						size="22px"
-					/>
-				</div>
-			</div>
+			<SpecialPanel
+				publishedAt={publishedAt}
+				margin="-20px 0 20px"
+				editButton={<Icon
+					name="pencil-square-o"
+					margin="0"
+					size="22px"
+					onClick={() => navigate(`/post/${id}/edit/`)}
+				/>}
+			/>
 			<div className="post-text">{content}</div>
 		</div>
 	);
@@ -55,23 +46,7 @@ export const PostContent = styled(PostContentContainer)`
 		margin: 0 20px 10px 0;
 	}
 	
-	& .special-panel {
-		margin: -20px 0 20px;
-		display: flex;
-		justify-content: space-between;
-	}
-	
-	& .published-at {
-		display: flex;
-		align-items: center;
-		gap: 10px;
-		font-size: 20px;
-		line-height: 18px;
-	}
-	
-	& .buttons {
-		display: flex;
-		align-items: center;
-		gap: 20px;
+	.post-text {
+		white-space: pre-line;
 	}
 `;
