@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 import { Link, Route, Routes } from 'react-router-dom';
-import { Header, Footer } from './components/index.js';
+import { Header, Footer, Modal } from './components/index.js';
 import { Authorization, Post, Registration } from './pages';
 import { Users } from './pages/users/users.jsx';
 import { useLayoutEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setUser } from './actions/index.js';
-import { sessions } from './bff/sessions.js';
 
 const AppColumn = styled.div`
 	display: flex;
@@ -33,10 +32,12 @@ function App() {
 		
 		const currentUserData = JSON.parse(currentUserDataJSON);
 		
-		dispatch(setUser({
-			...currentUserData,
-			roleId: Number(currentUserData.roleId),
-		}));
+		dispatch(
+			setUser({
+				...currentUserData,
+				roleId: Number(currentUserData.roleId),
+			}),
+		);
 	}, [dispatch]);
 	
 	return (
@@ -47,8 +48,10 @@ function App() {
 					<Route
 						path="/"
 						element={
-							<div style={{ height: 1000 }}>Главная <Link to="/post/001">asdasd</Link>
-							</div>}
+							<div>
+								Главная <Link to="/post/001">asdasd</Link>
+							</div>
+						}
 					/>
 					<Route
 						path="/login"
@@ -71,12 +74,17 @@ function App() {
 						element={<Post />}
 					/>
 					<Route
+						path="/post/:id/edit"
+						element={<Post />}
+					/>
+					<Route
 						path="*"
 						element={<div>Ошибка</div>}
 					/>
 				</Routes>
 			</Page>
 			<Footer />
+			<Modal />
 		</AppColumn>
 	);
 }

@@ -7,3 +7,5 @@ export * from './update-user-role.js';
 export * from './remove-user.js';
 export * from './fetch-post.js';
 export * from './add-comment.js';
+export * from './remove-post-comment.js';
+export * from './save-post.js';
