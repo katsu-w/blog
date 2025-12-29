@@ -1,7 +1,37 @@
 import styled from 'styled-components';
 import { Icon } from '../../../../components/index.js';
+import {
+	CLOSE_MODAL,
+	openModal,
+	removePostAsync,
+} from '../../../../actions/index.js';
+import { useDispatch } from 'react-redux';
+import { useServerRequest } from '../../../../hooks/index.js';
+import { useNavigate } from 'react-router-dom';
 
-const SpecialPanelContainer = ({ className, publishedAt, editButton }) => {
+const SpecialPanelContainer = ({
+	                               className,
+	                               postId,
+	                               publishedAt,
+	                               editButton,
+                               }) => {
+	const dispatch = useDispatch();
+	const requestServer = useServerRequest();
+	const navigate = useNavigate();
+	
+	const onPostRemove = (postId) => {
+		dispatch(
+			openModal({
+				heading: 'Удалить статью?',
+				onConfirm: () => {
+					dispatch(removePostAsync(requestServer, postId)).then(() => navigate('/'));
+					dispatch(CLOSE_MODAL);
+				},
+				onCancel: () => dispatch(CLOSE_MODAL),
+			}),
+		);
+	};
+	
 	return (
 		<div className={className}>
 			<div className="published-at">
@@ -18,6 +48,7 @@ const SpecialPanelContainer = ({ className, publishedAt, editButton }) => {
 					name="trash-o"
 					margin="0"
 					size="22px"
+					onClick={() => onPostRemove(postId)}
 				/>
 			</div>
 		</div>

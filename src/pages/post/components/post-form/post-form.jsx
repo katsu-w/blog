@@ -57,6 +57,7 @@ const PostFormContainer = ({
 				/>
 			</div>
 			<SpecialPanel
+				postId={id}
 				publishedAt={publishedAt}
 				margin="20px 0"
 				editButton={<Icon

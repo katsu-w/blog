@@ -27,7 +27,6 @@ const CommentContainer = ({
 			},
 			onCancel: () => dispatch(CLOSE_MODAL),
 		}));
-		
 	};
 	
 	return (
