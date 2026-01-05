@@ -67,7 +67,7 @@ function App() {
 					/>
 					<Route
 						path="/post/"
-						element={<div>Новая статья</div>}
+						element={<Post />}
 					/>
 					<Route
 						path="/post/:id"

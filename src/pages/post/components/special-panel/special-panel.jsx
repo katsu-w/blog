@@ -40,16 +40,18 @@ const SpecialPanelContainer = ({
 					margin="0"
 					size="20px"
 				/>
-				{publishedAt}
+				{publishedAt ? publishedAt : new Date().toLocaleDateString()}
 			</div>
 			<div className="buttons">
 				{editButton}
-				<Icon
-					name="trash-o"
-					margin="0"
-					size="22px"
-					onClick={() => onPostRemove(postId)}
-				/>
+				{publishedAt && (
+					<Icon
+						name="trash-o"
+						margin="0"
+						size="22px"
+						onClick={() => onPostRemove(postId)}
+					/>
+				)}
 			</div>
 		</div>
 	);

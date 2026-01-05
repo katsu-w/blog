@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Input } from '../../../../components/UI/index.js';
 import { Icon } from '../../../../components/index.js';
 import { SpecialPanel } from '../special-panel/special-panel.jsx';
-import { useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import { sanitizeContent } from './utils/index.js';
 import { useDispatch } from 'react-redux';
 import { savePostAsync } from '../../../../actions/index.js';
@@ -93,5 +93,9 @@ export const PostForm = styled(PostFormContainer)`
 	
 	.post-text {
 		white-space: pre-line;
+		min-height: 80px;
+		padding: 8px;
+		border: 1px solid #e4e4e4;
+		border-radius: 16px;
 	}
 `;
