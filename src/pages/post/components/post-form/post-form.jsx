@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Input } from '../../../../components/UI/index.js';
 import { Icon } from '../../../../components/index.js';
 import { SpecialPanel } from '../special-panel/special-panel.jsx';
-import { useLayoutEffect, useRef } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
 import { sanitizeContent } from './utils/index.js';
 import { useDispatch } from 'react-redux';
 import { savePostAsync } from '../../../../actions/index.js';
@@ -19,40 +19,48 @@ const PostFormContainer = ({
 		                           publishedAt,
 	                           },
                            }) => {
-	const imageRef = useRef(null);
-	const titleRef = useRef(null);
+	const [imageUrlValue, setImageUrlValue] = useState(imageUrl);
+	const [titleValue, setTitleValue] = useState(title);
+	
 	const contentRef = useRef(null);
+	
+	useLayoutEffect(() => {
+		// eslint-disable-next-line react-hooks/set-state-in-effect
+		setImageUrlValue(imageUrl);
+		setTitleValue(title);
+	}, [imageUrl, title]);
 	
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const requestServer = useServerRequest();
 	
+	const onImageChange = ({ target }) => setImageUrlValue(target.value);
+	const onTitleChange = ({ target }) => setTitleValue(target.value);
+	
 	const onSave = () => {
-		const newImageUrl = imageRef.current.value;
-		const newTitle = titleRef.current.value;
 		const newContent = sanitizeContent(contentRef.current.innerHTML);
 		
 		dispatch(
 			savePostAsync(requestServer, {
-				imageUrl: newImageUrl,
-				title: newTitle,
+				imageUrl: imageUrlValue,
+				title: titleValue,
 				content: newContent,
-				id: id,
+				id,
 			}),
-		).then(() => navigate(`/post/${id}`));
+		).then(({ id }) => navigate(`/post/${id}`));
 	};
 	
 	return (
 		<div className={className}>
 			<div className="inputs">
 				<Input
-					ref={imageRef}
-					defaultValue={imageUrl}
+					onChange={onImageChange}
+					value={imageUrlValue}
 					placeholder="Изображение..."
 				/>
 				<Input
-					ref={titleRef}
-					defaultValue={title}
+					onChange={onTitleChange}
+					value={titleValue}
 					placeholder="Заголовок..."
 				/>
 			</div>

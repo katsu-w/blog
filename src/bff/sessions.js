@@ -4,7 +4,7 @@ export const sessions = {
 	create(user) {
 		const hash = Math.random().toFixed(50);
 		
-		addSession(hash, user).then(() => console.log('session created'));
+		addSession(hash, user);
 		
 		return hash;
 	},
