@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link, Route, Routes } from 'react-router-dom';
 import { Header, Footer, Modal } from './components/index.js';
-import { Authorization, Post, Registration } from './pages';
+import { Authorization, Main, Post, Registration } from './pages';
 import { Users } from './pages/users/users.jsx';
 import { useLayoutEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -47,11 +47,7 @@ function App() {
 				<Routes>
 					<Route
 						path="/"
-						element={
-							<div>
-								Главная <Link to="/post/001">asdasd</Link>
-							</div>
-						}
+						element={<Main />}
 					/>
 					<Route
 						path="/login"

@@ -14,3 +14,4 @@ export * from './delete-comment.js';
 export * from './delete-post.js';
 export * from './update-post.js';
 export * from './create-post.js';
+export * from './get-posts.js';
