@@ -34,9 +34,8 @@ const MainContainer = ({ className }) => {
 export const Main = styled(MainContainer)`
 	& .posts-layout {
 		display: flex;
-		justify-content: space-between;
 		flex-wrap: wrap;
-		gap: 50px;
+		gap: 57px;
 		padding: 56px;
 	}
 `;

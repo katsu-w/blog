@@ -53,7 +53,7 @@ export const PostCard = styled(PostCardContainer)`
 		display: block;
 		width: 100%;
 		min-height: 100%;
-		border-radius: 16px 16px 0 0;
+		border-radius: 12px 12px 0 0;
 		aspect-ratio: 16 / 9;
 	}
 	
