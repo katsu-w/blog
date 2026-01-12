@@ -1,18 +1,22 @@
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import { useServerRequest } from '../../hooks/index.js';
-import { PostCard } from './components/index.js';
+import { Pagination, PostCard } from './components/index.js';
+import { PAGINATION_LIMIT } from '../../constants/index.js';
 
 const MainContainer = ({ className }) => {
 	const [posts, setPosts] = useState([]);
+	const [page, setPage] = useState(1);
+	const [lastPage, setLastPage] = useState(1);
 	
 	const requestServer = useServerRequest();
 	
 	useEffect(() => {
-		requestServer('fetchPosts').then((posts) => {
-			setPosts(posts.res);
+		requestServer('fetchPosts', page, PAGINATION_LIMIT).then((posts) => {
+			setPosts(posts.res.data);
+			setLastPage(posts.res.last);
 		});
-	}, [requestServer]);
+	}, [requestServer, page]);
 	
 	return (
 		<main className={className}>
@@ -27,6 +31,11 @@ const MainContainer = ({ className }) => {
 						commentsCount={commentsCount}
 					/>)}
 			</div>
+			<Pagination
+				page={page}
+				setPage={setPage}
+				lastPage={lastPage}
+			/>
 		</main>
 	);
 };
