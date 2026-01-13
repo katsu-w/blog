@@ -31,11 +31,13 @@ const MainContainer = ({ className }) => {
 						commentsCount={commentsCount}
 					/>)}
 			</div>
-			<Pagination
-				page={page}
-				setPage={setPage}
-				lastPage={lastPage}
-			/>
+			{lastPage > 1 && (
+				<Pagination
+					page={page}
+					setPage={setPage}
+					lastPage={lastPage}
+				/>
+			)}
 		</main>
 	);
 };
