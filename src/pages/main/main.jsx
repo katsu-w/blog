@@ -1,25 +1,33 @@
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import { useServerRequest } from '../../hooks/index.js';
-import { Pagination, PostCard } from './components/index.js';
+import { Pagination, PostCard, Search } from './components/index.js';
 import { PAGINATION_LIMIT } from '../../constants/index.js';
 
 const MainContainer = ({ className }) => {
 	const [posts, setPosts] = useState([]);
 	const [page, setPage] = useState(1);
 	const [lastPage, setLastPage] = useState(1);
+	const [searchPhrase, setSearchPhrase] = useState('');
+	const [shouldSearch, setShouldSearch] = useState(false);
 	
 	const requestServer = useServerRequest();
 	
 	useEffect(() => {
-		requestServer('fetchPosts', page, PAGINATION_LIMIT).then((posts) => {
+		requestServer('fetchPosts', page, PAGINATION_LIMIT, searchPhrase).then((posts) => {
 			setPosts(posts.res.data);
 			setLastPage(posts.res.last);
 		});
-	}, [requestServer, page]);
+	}, [requestServer, page, searchPhrase]);
+	
+	const onSearch = ({ target }) => {
+		setSearchPhrase(target.value);
+		setShouldSearch(!shouldSearch);
+	};
 	
 	return (
 		<main className={className}>
+			<Search onChange={onSearch} />
 			<div className="posts-layout">
 				{posts.map(({ id, title, imageUrl, publishedAt, commentsCount }) =>
 					<PostCard
