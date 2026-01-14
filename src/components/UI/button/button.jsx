@@ -20,6 +20,7 @@ export const Button = styled(ButtonContainer)`
 	
 	&:hover {
 		transform: scale(1.03);
+		cursor: ${({ disabled }) => disabled ? 'default' : 'pointer'};
 	}
 	
 	&:disabled {
