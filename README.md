@@ -1,2 +1,2 @@
 database - \
-json-server src/db.json
+npx json-server@0.17.4 --watch src/db.json

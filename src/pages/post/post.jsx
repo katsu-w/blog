@@ -7,6 +7,7 @@ import { loadPostAsync, RESET_POST_DATA } from '../../actions';
 import { useServerRequest } from '../../hooks';
 import { selectPost } from '../../selectors/index.js';
 import { PostForm } from './components/post-form/post-form.jsx';
+import { Loader } from '../../components/UI/index.js';
 
 const PostContainer = ({ className }) => {
 	const dispatch = useDispatch();
@@ -34,13 +35,18 @@ const PostContainer = ({ className }) => {
 			{isCreating || isEditing ? (
 				<PostForm post={post} />
 			) : (
-				<>
-					<PostContent post={post} />
-					<Comments
-						comments={post.comments}
-						postId={post.id}
-					/>
-				</>
+				post.imageUrl ?
+					(
+						<>
+							<PostContent post={post} />
+							<Comments
+								comments={post.comments}
+								postId={post.id}
+							/>
+						</>
+					)
+					:
+					(<Loader />)
 			)}
 		</main>
 	);
