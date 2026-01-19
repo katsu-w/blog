@@ -10,7 +10,7 @@ const SearchButton = styled.button`
 	cursor: pointer;
 `;
 
-const SearchContainer = ({ className, searchPhrase, onChange }) => {
+const SearchContainer = ({ className, searchPhrase, onChange, onClick }) => {
 	return (
 		<div className={className}>
 			<Input
@@ -18,8 +18,12 @@ const SearchContainer = ({ className, searchPhrase, onChange }) => {
 				onChange={onChange}
 				radius="16px 0 0 16px"
 				border="none"
+				type="search"
 			/>
-			<SearchButton>
+			<SearchButton
+				type="submit"
+				onClick={onClick}
+			>
 				<Icon
 					name="search"
 					margin="auto 12px"

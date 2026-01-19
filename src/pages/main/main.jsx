@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useServerRequest } from '../../hooks/index.js';
 import { Pagination, PostCard, Search } from './components/index.js';
 import { PAGINATION_LIMIT } from '../../constants/index.js';
-import { getLastPageFromLinks } from './utils/get-last-page-from-links.js';
+import { debounce, getLastPageFromLinks } from './utils/index.js';
 import { H2, Loader } from '../../components/UI/index.js';
 
 const MainContainer = ({ className }) => {
@@ -20,18 +20,26 @@ const MainContainer = ({ className }) => {
 			setPosts(posts.res.posts);
 			setLastPage(getLastPageFromLinks(posts.res.links));
 		});
-	}, [requestServer, page, searchPhrase]);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [requestServer, page, shouldSearch]);
+	
+	const startDelayedSearch = useMemo(() => debounce(setShouldSearch, 1000), []);
 	
 	const onSearch = ({ target }) => {
 		setSearchPhrase(target.value);
-		setShouldSearch(!shouldSearch);
+		startDelayedSearch(!shouldSearch);
 	};
+	
+	const onClick = () => setShouldSearch(!shouldSearch);
 	
 	return (
 		<main className={className}>
-			<Search onChange={onSearch} />
+			<Search
+				onChange={onSearch}
+				onClick={onClick}
+			/>
 			{
-				posts.length > 0 ?
+				posts.length ?
 					(<>
 						<div className="posts-layout">
 							{posts.map(({
