@@ -19,6 +19,7 @@ const SearchContainer = ({ className, searchPhrase, onChange, onClick }) => {
 				radius="16px 0 0 16px"
 				border="none"
 				type="search"
+				placeholder="Поиск..."
 			/>
 			<SearchButton
 				type="submit"
@@ -39,7 +40,7 @@ export const Search = styled(SearchContainer)`
 	display: flex;
 	width: 340px;
 	height: 40px;
-	margin: 50px auto 0;
+	margin: 32px auto 0;
 	border: 1px solid #e4e4e4;
 	border-radius: 16px;
 	background-color: #fff;

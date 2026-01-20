@@ -44,7 +44,7 @@ const PostCardContainer = ({
 };
 
 export const PostCard = styled(PostCardContainer)`
-	flex-basis: 29%;
+	flex-basis: 29.7%;
 	border: 2px solid #f1f1f1;
 	border-radius: 16px;
 	height: 100%;
