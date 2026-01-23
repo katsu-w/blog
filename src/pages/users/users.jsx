@@ -3,7 +3,7 @@ import { H2 } from '../../components/UI';
 import { TableRow, UserRow } from './components';
 import { useServerRequest } from '../../hooks';
 import { useEffect, useState } from 'react';
-import { Content } from '../../components/index.js';
+import { PrivateContent } from '../../components/index.js';
 import { ROLE } from '../../constants/index.js';
 
 const Table = styled.div`
@@ -45,7 +45,10 @@ const UsersContainer = ({ className }) => {
 	
 	return (
 		<main className={className}>
-			<Content error={errorMessage}>
+			<PrivateContent
+				access={[ROLE.ADMIN]}
+				serverError={errorMessage}
+			>
 				<H2>Пользователи</H2>
 				{
 					users.length > 0 ?
@@ -70,7 +73,7 @@ const UsersContainer = ({ className }) => {
 						:
 						<div>Ошибка загрузки пользователей</div>
 				}
-			</Content>
+			</PrivateContent>
 		</main>
 	);
 };
