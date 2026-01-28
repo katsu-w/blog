@@ -5,9 +5,12 @@ import {
 	openModal,
 	removePostAsync,
 } from '../../../../actions/index.js';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useServerRequest } from '../../../../hooks/index.js';
 import { useNavigate } from 'react-router-dom';
+import { checkAccess } from '../../../../utils/index.js';
+import { ROLE } from '../../../../constants/index.js';
+import { selectUserRole } from '../../../../selectors/index.js';
 
 const SpecialPanelContainer = ({
 	                               className,
@@ -18,8 +21,11 @@ const SpecialPanelContainer = ({
 	const dispatch = useDispatch();
 	const requestServer = useServerRequest();
 	const navigate = useNavigate();
+	const userRole = useSelector(selectUserRole);
 	
 	const onPostRemove = (postId) => {
+		if (!checkAccess([ROLE.ADMIN], userRole)) return;
+		
 		dispatch(
 			openModal({
 				heading: 'Удалить статью?',

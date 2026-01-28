@@ -5,6 +5,9 @@ import { useServerRequest } from '../../hooks';
 import { useEffect, useState } from 'react';
 import { PrivateContent } from '../../components/index.js';
 import { ROLE } from '../../constants/index.js';
+import { checkAccess } from '../../utils/index.js';
+import { useSelector } from 'react-redux';
+import { selectUserRole } from '../../selectors/index.js';
 
 const Table = styled.div`
 	max-width: 77%;
@@ -20,10 +23,13 @@ const UsersContainer = ({ className }) => {
 	const [roles, setRoles] = useState([]);
 	const [errorMessage, setErrorMessage] = useState('');
 	const [shouldUpdateUserList, setShouldUpdateUserList] = useState(false);
+	const userRole = useSelector(selectUserRole);
 	
 	const requestServer = useServerRequest();
 	
 	useEffect(() => {
+		if (!checkAccess([ROLE.ADMIN], userRole)) return;
+		
 		Promise.all([requestServer('fetchUsers'), requestServer('fetchRoles')]).then(
 			([usersRes, rolesRes]) => {
 				if (usersRes.error || rolesRes.error) {
@@ -38,6 +44,8 @@ const UsersContainer = ({ className }) => {
 	}, [requestServer, shouldUpdateUserList]);
 	
 	const onUserRemove = (userId) => {
+		if (!checkAccess([ROLE.ADMIN], userRole)) return;
+		
 		requestServer('removeUser', userId).then(() => {
 			setShouldUpdateUserList(!shouldUpdateUserList);
 		});
