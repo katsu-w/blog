@@ -38,6 +38,8 @@ const SpecialPanelContainer = ({
 		);
 	};
 	
+	const isAdmin = checkAccess([ROLE.ADMIN], userRole);
+	
 	return (
 		<div className={className}>
 			<div className="published-at">
@@ -48,17 +50,19 @@ const SpecialPanelContainer = ({
 				/>
 				{publishedAt ? publishedAt : new Date().toLocaleDateString()}
 			</div>
-			<div className="buttons">
-				{editButton}
-				{publishedAt && (
-					<Icon
-						name="trash-o"
-						margin="0"
-						size="22px"
-						onClick={() => onPostRemove(postId)}
-					/>
-				)}
-			</div>
+			{isAdmin && (
+				<div className="buttons">
+					{editButton}
+					{publishedAt && (
+						<Icon
+							name="trash-o"
+							margin="0"
+							size="22px"
+							onClick={() => onPostRemove(postId)}
+						/>
+					)}
+				</div>
+			)}
 		</div>
 	);
 };

@@ -30,7 +30,7 @@ const MainContainer = ({ className }) => {
 		startDelayedSearch(!shouldSearch);
 	};
 	
-	const onClick = () => setShouldSearch(!shouldSearch);
+	const onClick = () => searchPhrase ? setShouldSearch(!shouldSearch) : null;
 	
 	return (
 		<main className={className}>
