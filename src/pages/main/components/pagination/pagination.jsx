@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Button } from '../../../../components/UI/index.js';
+import PropTypes from 'prop-types';
 
 const PaginationContainer = ({ className, page, setPage, lastPage }) => {
 	return (
@@ -27,14 +28,11 @@ const PaginationContainer = ({ className, page, setPage, lastPage }) => {
 
 export const Pagination = styled(PaginationContainer)`
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
 	margin: 0 0 20px;
 	padding: 0 35px;
-	
-	& button {
-		margin: 0 5px;
-	}
+	gap: 10px;
 	
 	& .current-page {
 		border: 1px solid #f1f1f1;
@@ -46,3 +44,9 @@ export const Pagination = styled(PaginationContainer)`
 		font-weight: 500;
 	}
 `;
+
+Pagination.propTypes = {
+	page: PropTypes.number.isRequired,
+	lastPage: PropTypes.number.isRequired,
+	setPage: PropTypes.func.isRequired,
+};

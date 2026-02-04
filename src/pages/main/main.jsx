@@ -30,59 +30,61 @@ const MainContainer = ({ className }) => {
 		startDelayedSearch(!shouldSearch);
 	};
 	
-	const onClick = () => setShouldSearch(!shouldSearch);
+	const onClick = () => searchPhrase ? setShouldSearch(!shouldSearch) : null;
 	
 	return (
 		<main className={className}>
-			<Search
-				onChange={onSearch}
-				onClick={onClick}
-			/>
-			{
-				posts.length ?
-					(<>
-						<div className="posts-layout">
-							{posts.map(({
-								            id,
-								            title,
-								            imageUrl,
-								            publishedAt,
-								            commentsCount,
-							            }) =>
-								<PostCard
-									key={id}
-									id={id}
-									title={title}
-									imageUrl={imageUrl}
-									publishedAt={publishedAt}
-									commentsCount={commentsCount}
-								/>)}
-						</div>
-						{lastPage > 1 && (
-							<Pagination
-								page={page}
-								setPage={setPage}
-								lastPage={lastPage}
+			<div className="search-and-posts">
+				<Search
+					onChange={onSearch}
+					onClick={onClick}
+				/>
+				{posts.length > 0 ? (
+					<div className="posts-layout">
+						{posts.map(({
+							            id,
+							            title,
+							            imageUrl,
+							            publishedAt,
+							            commentsCount,
+						            }) => (
+							<PostCard
+								key={id}
+								id={id}
+								title={title}
+								imageUrl={imageUrl}
+								publishedAt={publishedAt}
+								commentsCount={commentsCount}
 							/>
-						)}
-					</>)
-					: (
-						<div className="no-posts">
-							<H2>Посты не найдены</H2>
-							<Loader />
-						</div>
-					)
-			}
+						))}
+					</div>
+				) : (
+					<div className="no-posts">
+						<H2>Посты не найдены</H2>
+						<Loader />
+					</div>
+				)}
+			</div>
+			{lastPage > 1 && <Pagination
+				page={page}
+				setPage={setPage}
+				lastPage={lastPage}
+			/>}
 		</main>
 	);
 };
 
 export const Main = styled(MainContainer)`
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	
 	& .posts-layout {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 57px;
-		padding: 56px;
+		gap: 48px;
+		padding: 32px 48px;
+		min-height: 940px;
 	}
 	
 	& .no-posts {

@@ -3,15 +3,18 @@ import { useState } from 'react';
 import { Icon } from '../../../../components/index.js';
 import { Comment } from './components/index.js';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectUserId } from '../../../../selectors/index.js';
+import { selectUserId, selectUserRole } from '../../../../selectors/index.js';
 import { useServerRequest } from '../../../../hooks/index.js';
 import { addCommentAsync } from '../../../../actions/index.js';
+import { PROP_TYPE, ROLE } from '../../../../constants/index.js';
+import PropTypes from 'prop-types';
 
 const CommentsContainer = ({ className, comments, postId }) => {
 	const [newComment, setNewComment] = useState('');
-	const userId = useSelector(selectUserId);
 	const dispatch = useDispatch();
 	const requestServer = useServerRequest();
+	const userId = useSelector(selectUserId);
+	const userRole = useSelector(selectUserRole);
 	
 	const onNewCommentAdd = (userId, postId, content) => {
 		if (content.trim() !== '') {
@@ -21,24 +24,28 @@ const CommentsContainer = ({ className, comments, postId }) => {
 		setNewComment('');
 	};
 	
+	const isGuest = userRole === ROLE.GUEST;
+	
 	return (
 		<div className={className}>
-			<div className="new-comment">
+			{!isGuest && (
+				<div className="new-comment">
 				<textarea
 					name="comment"
 					value={newComment}
 					placeholder="Комментарий..."
 					onChange={({ target }) => setNewComment(target.value)}
 				/>
-				<Icon
-					name="paper-plane-o"
-					margin="0"
-					onClick={() => onNewCommentAdd(userId, postId, newComment)}
-				/>
-			</div>
+					<Icon
+						name="paper-plane-o"
+						margin="0"
+						onClick={() => onNewCommentAdd(userId, postId, newComment)}
+					/>
+				</div>
+			)}
 			<div className="comments">
 				{comments &&
-					comments.map(({ id, author, content, publishedAt }) => (
+					comments.toReversed().map(({ id, author, content, publishedAt }) => (
 						<Comment
 							key={id}
 							postId={postId}
@@ -81,3 +88,8 @@ export const Comments = styled(CommentsContainer)`
 		gap: 10px;
 	}
 `;
+
+Comments.propTypes = {
+	comments: PropTypes.arrayOf(PROP_TYPE.COMMENT),
+	postId: PropTypes.string.isRequired,
+};

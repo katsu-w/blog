@@ -193,41 +193,35 @@
       "post_id": "c81a",
       "published_at": "2026-01-06 19:39",
       "content": "Оценка: непонятный винегрет\nСтатус: не дропнуто\nВердикт: на разок\nПошел смотреть 2 сезон"
+    },
+    {
+      "author_id": "001",
+      "post_id": "009",
+      "published_at": "2026-02-02 17:44",
+      "content": "123\n",
+      "id": "ZSJfNCT"
+    },
+    {
+      "author_id": "001",
+      "post_id": "009",
+      "published_at": "2026-02-02 17:44",
+      "content": "123",
+      "id": "jFSLAqf"
+    },
+    {
+      "author_id": "6301",
+      "post_id": "009",
+      "published_at": "2026-02-02 17:44",
+      "content": "123",
+      "id": "sR71ttD"
+    },
+    {
+      "author_id": "6301",
+      "post_id": "001",
+      "published_at": "2026-02-02 17:47",
+      "content": "пупупу\n",
+      "id": "7lV2bDt"
     }
   ],
-  "sessions": [
-    {
-      "id": "7ff2",
-      "hash": "0.15347651341063095475902855469030328094959259033203",
-      "user": {
-        "id": "001",
-        "login": "katsu",
-        "registeredAt": "2025-11-25 20:31",
-        "roleId": 0,
-        "password": "sadsad"
-      }
-    },
-    {
-      "id": "6e65",
-      "hash": "0.28992612040359921898868833523010835051536560058594",
-      "user": {
-        "id": "001",
-        "login": "katsu",
-        "registeredAt": "2025-11-25 20:31",
-        "roleId": 0,
-        "password": "sadsad"
-      }
-    },
-    {
-      "hash": "0.84739699295993264893667173964786343276500701904297",
-      "user": {
-        "id": "001",
-        "login": "katsu",
-        "registeredAt": "2025-11-25 20:31",
-        "roleId": 0,
-        "password": "sadsad"
-      },
-      "id": "iRQYzLF"
-    }
-  ]
+  "sessions": []
 }

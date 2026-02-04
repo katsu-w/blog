@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Input } from '../../../../components/UI/index.js';
 import { Icon } from '../../../../components/index.js';
+import PropTypes from 'prop-types';
 
 const SearchButton = styled.button`
 	padding: 0;
@@ -19,6 +20,7 @@ const SearchContainer = ({ className, searchPhrase, onChange, onClick }) => {
 				radius="16px 0 0 16px"
 				border="none"
 				type="search"
+				placeholder="Поиск..."
 			/>
 			<SearchButton
 				type="submit"
@@ -39,8 +41,14 @@ export const Search = styled(SearchContainer)`
 	display: flex;
 	width: 340px;
 	height: 40px;
-	margin: 50px auto 0;
+	margin: 32px auto 0;
 	border: 1px solid #e4e4e4;
 	border-radius: 16px;
 	background-color: #fff;
 `;
+
+Search.propTypes = {
+	searchPhrase: PropTypes.string.isRequired,
+	onChange: PropTypes.func.isRequired,
+	onClick: PropTypes.func.isRequired,
+};

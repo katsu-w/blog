@@ -10,6 +10,7 @@ import {
 	selectUserSession,
 } from '../../../../selectors';
 import { logout } from '../../../../actions';
+import { checkAccess } from '../../../../utils/index.js';
 
 const RightAligned = styled.div`
 	display: flex;
@@ -39,7 +40,7 @@ const ControlPanelContainer = ({ className }) => {
 	
 	const dispatch = useDispatch();
 	
-	const roleId = useSelector(selectUserRole);
+	const userRole = useSelector(selectUserRole);
 	const login = useSelector(selectUserLogin);
 	const session = useSelector(selectUserSession);
 	
@@ -48,10 +49,12 @@ const ControlPanelContainer = ({ className }) => {
 		sessionStorage.removeItem('userData');
 	};
 	
+	const isAdmin = checkAccess([ROLE.ADMIN], userRole);
+	
 	return (
 		<div className={className}>
 			<RightAligned>
-				{roleId === ROLE.GUEST ? (
+				{userRole === ROLE.GUEST ? (
 					<Link to="/login">
 						<Button width="100px">Войти</Button>
 					</Link>
@@ -68,12 +71,16 @@ const ControlPanelContainer = ({ className }) => {
 				<ButtonIcon onClick={() => navigate(-1)}>
 					<Icon name="backward" />
 				</ButtonIcon>
-				<Link to="post">
-					<Icon name="file-text-o" />
-				</Link>
-				<Link to="/users">
-					<Icon name="users" />
-				</Link>
+				{isAdmin && (
+					<>
+						<Link to="post">
+							<Icon name="file-text-o" />
+						</Link>
+						<Link to="/users">
+							<Icon name="users" />
+						</Link>
+					</>
+				)}
 			</RightAligned>
 		</div>
 	);

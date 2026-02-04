@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Icon } from '../../../../components/index.js';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const PostCardContainer = ({
 	                           className,
@@ -44,7 +45,7 @@ const PostCardContainer = ({
 };
 
 export const PostCard = styled(PostCardContainer)`
-	flex-basis: 29%;
+	flex-basis: 29.7%;
 	border: 2px solid #f1f1f1;
 	border-radius: 16px;
 	height: 100%;
@@ -89,3 +90,11 @@ export const PostCard = styled(PostCardContainer)`
 		gap: 8px;
 	}
 `;
+
+PostCard.propTypes = {
+	id: PropTypes.string.isRequired,
+	title: PropTypes.string.isRequired,
+	imageUrl: PropTypes.string.isRequired,
+	publishedAt: PropTypes.string.isRequired,
+	commentsCount: PropTypes.number.isRequired,
+};

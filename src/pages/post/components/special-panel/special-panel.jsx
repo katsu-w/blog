@@ -5,9 +5,13 @@ import {
 	openModal,
 	removePostAsync,
 } from '../../../../actions/index.js';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useServerRequest } from '../../../../hooks/index.js';
 import { useNavigate } from 'react-router-dom';
+import { checkAccess } from '../../../../utils/index.js';
+import { ROLE } from '../../../../constants/index.js';
+import { selectUserRole } from '../../../../selectors/index.js';
+import PropTypes from 'prop-types';
 
 const SpecialPanelContainer = ({
 	                               className,
@@ -18,8 +22,11 @@ const SpecialPanelContainer = ({
 	const dispatch = useDispatch();
 	const requestServer = useServerRequest();
 	const navigate = useNavigate();
+	const userRole = useSelector(selectUserRole);
 	
 	const onPostRemove = (postId) => {
+		if (!checkAccess([ROLE.ADMIN], userRole)) return;
+		
 		dispatch(
 			openModal({
 				heading: 'Удалить статью?',
@@ -32,6 +39,8 @@ const SpecialPanelContainer = ({
 		);
 	};
 	
+	const isAdmin = checkAccess([ROLE.ADMIN], userRole);
+	
 	return (
 		<div className={className}>
 			<div className="published-at">
@@ -42,17 +51,19 @@ const SpecialPanelContainer = ({
 				/>
 				{publishedAt ? publishedAt : new Date().toLocaleDateString()}
 			</div>
-			<div className="buttons">
-				{editButton}
-				{publishedAt && (
-					<Icon
-						name="trash-o"
-						margin="0"
-						size="22px"
-						onClick={() => onPostRemove(postId)}
-					/>
-				)}
-			</div>
+			{isAdmin && (
+				<div className="buttons">
+					{editButton}
+					{publishedAt && (
+						<Icon
+							name="trash-o"
+							margin="0"
+							size="22px"
+							onClick={() => onPostRemove(postId)}
+						/>
+					)}
+				</div>
+			)}
 		</div>
 	);
 };
@@ -76,3 +87,9 @@ export const SpecialPanel = styled(SpecialPanelContainer)`
 		gap: 20px;
 	}
 `;
+
+SpecialPanel.propTypes = {
+	id: PropTypes.string.isRequired,
+	publishedAt: PropTypes.string.isRequired,
+	editButton: PropTypes.node.isRequired,
+};

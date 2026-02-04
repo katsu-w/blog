@@ -1,5 +1,6 @@
 import { H2 } from '../UI';
 import styled from 'styled-components';
+import { PROP_TYPE } from '../../constants/index.js';
 
 const Div = styled.div`
 	display: flex;
@@ -9,12 +10,14 @@ const Div = styled.div`
 	background-color: #282828;
 `;
 
-export const Content = ({ children, error }) =>
-	error ? (
+export const Error = ({ error }) =>
+	error && (
 		<Div>
 			<H2>Ошибка</H2>
 			<div>{error}</div>
 		</Div>
-	) : (
-		children
 	);
+
+Error.propTypes = {
+	error: PROP_TYPE.ERROR,
+};

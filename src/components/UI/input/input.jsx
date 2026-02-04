@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const InputContainer = ({ className, ...props }) => {
 	return (
@@ -13,3 +14,7 @@ export const Input = styled(InputContainer)`
 	border-radius: ${({ radius = '16px' }) => radius};
 	font-size: 25px;
 `;
+
+Input.propTypes = {
+	width: PropTypes.string,
+};
