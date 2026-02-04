@@ -8,6 +8,7 @@ import {
 import { useServerRequest } from '../../../../../../hooks/index.js';
 import { selectUserRole } from '../../../../../../selectors/index.js';
 import { ROLE } from '../../../../../../constants/index.js';
+import PropTypes from 'prop-types';
 
 const CommentContainer = ({
 	                          className,
@@ -105,3 +106,11 @@ export const Comment = styled(CommentContainer)`
 		hyphens: auto;
 	}
 `;
+
+Comment.propTypes = {
+	postId: PropTypes.string.isRequired,
+	id: PropTypes.string.isRequired,
+	author: PropTypes.string.isRequired,
+	content: PropTypes.string.isRequired,
+	publishedAt: PropTypes.string.isRequired,
+};

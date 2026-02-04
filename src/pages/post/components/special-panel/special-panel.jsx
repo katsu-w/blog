@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import { checkAccess } from '../../../../utils/index.js';
 import { ROLE } from '../../../../constants/index.js';
 import { selectUserRole } from '../../../../selectors/index.js';
+import PropTypes from 'prop-types';
 
 const SpecialPanelContainer = ({
 	                               className,
@@ -86,3 +87,9 @@ export const SpecialPanel = styled(SpecialPanelContainer)`
 		gap: 20px;
 	}
 `;
+
+SpecialPanel.propTypes = {
+	id: PropTypes.string.isRequired,
+	publishedAt: PropTypes.string.isRequired,
+	editButton: PropTypes.node.isRequired,
+};

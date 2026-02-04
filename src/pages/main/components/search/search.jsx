@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Input } from '../../../../components/UI/index.js';
 import { Icon } from '../../../../components/index.js';
+import PropTypes from 'prop-types';
 
 const SearchButton = styled.button`
 	padding: 0;
@@ -45,3 +46,9 @@ export const Search = styled(SearchContainer)`
 	border-radius: 16px;
 	background-color: #fff;
 `;
+
+Search.propTypes = {
+	searchPhrase: PropTypes.string.isRequired,
+	onChange: PropTypes.func.isRequired,
+	onClick: PropTypes.func.isRequired,
+};
