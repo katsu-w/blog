@@ -1,19 +1,19 @@
 import * as yup from 'yup';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { server } from '../../bff';
-import { useState } from 'react';
+import {useForm} from 'react-hook-form';
+import {yupResolver} from '@hookform/resolvers/yup';
+import {useState} from 'react';
 import styled from 'styled-components';
-import { Button, Input, H2 } from '../../components/UI';
-import { Link, Navigate } from 'react-router-dom';
-import { setUser } from '../../actions';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectUserRole } from '../../selectors/index.js';
-import { ROLE } from '../../constants/index.js';
+import {Button, Input, H2} from '../../components/UI';
+import {Link, Navigate} from 'react-router-dom';
+import {setUser} from '../../actions';
+import {useDispatch, useSelector} from 'react-redux';
+import {selectUserRole} from '../../selectors/index.js';
+import {ROLE} from '../../constants/index.js';
 import {
 	AuthFormError,
 } from '../../components/index.js';
-import { useResetForm } from '../../hooks/index.js';
+import {useResetForm} from '../../hooks/index.js';
+import {request} from "../../utils/request.js";
 
 const regFormSchema = yup.object().shape({
 	login: yup
@@ -43,12 +43,12 @@ const StyledLink = styled(Link)`
 	margin: 10px 0;
 `;
 
-const RegistrationContainer = ({ className }) => {
+const RegistrationContainer = ({className}) => {
 	const {
 		register,
 		reset,
 		handleSubmit,
-		formState: { errors },
+		formState: {errors},
 	} = useForm({
 		defaultValues: {
 			login: '',
@@ -65,15 +65,15 @@ const RegistrationContainer = ({ className }) => {
 	
 	useResetForm(reset);
 	
-	const onSubmit = ({ login, password }) => {
-		server.register(login, password).then(({ error, res }) => {
+	const onSubmit = ({login, password}) => {
+		request('/register', 'POST', {login, password}).then(({error, user}) => {
 			if (error) {
 				setServerError(`Ошибка запроса: ${error}`);
 				return;
 			}
 			
-			dispatch(setUser(res));
-			sessionStorage.setItem('userData', JSON.stringify(res));
+			dispatch(setUser(user));
+			sessionStorage.setItem('userData', JSON.stringify(user));
 		});
 	};
 	
@@ -93,19 +93,19 @@ const RegistrationContainer = ({ className }) => {
 					name="login"
 					type="text"
 					placeholder="Логин..."
-					{...register('login', { onChange: () => setServerError(null) })}
+					{...register('login', {onChange: () => setServerError(null)})}
 				/>
 				<Input
 					name="password"
 					type="password"
 					placeholder="Пароль..."
-					{...register('password', { onChange: () => setServerError(null) })}
+					{...register('password', {onChange: () => setServerError(null)})}
 				/>
 				<Input
 					name="passcheck"
 					type="password"
 					placeholder="Повтор пароля..."
-					{...register('passcheck', { onChange: () => setServerError(null) })}
+					{...register('passcheck', {onChange: () => setServerError(null)})}
 				/>
 				<Button
 					type="submit"

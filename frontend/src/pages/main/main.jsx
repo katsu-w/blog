@@ -1,31 +1,31 @@
 import styled from 'styled-components';
-import { useEffect, useMemo, useState } from 'react';
-import { useServerRequest } from '../../hooks/index.js';
-import { Pagination, PostCard, Search } from './components/index.js';
-import { PAGINATION_LIMIT } from '../../constants/index.js';
-import { debounce, getLastPageFromLinks } from './utils/index.js';
-import { H2, Loader } from '../../components/UI/index.js';
+import {useEffect, useMemo, useState} from 'react';
+import {Pagination, PostCard, Search} from './components/index.js';
+import {PAGINATION_LIMIT} from '../../constants/index.js';
+import {debounce} from './utils/index.js';
+import {H2, Loader} from '../../components/UI/index.js';
+import {request} from "../../utils/request.js";
 
-const MainContainer = ({ className }) => {
+const MainContainer = ({className}) => {
 	const [posts, setPosts] = useState([]);
 	const [page, setPage] = useState(1);
 	const [lastPage, setLastPage] = useState(1);
 	const [searchPhrase, setSearchPhrase] = useState('');
 	const [shouldSearch, setShouldSearch] = useState(false);
 	
-	const requestServer = useServerRequest();
-	
 	useEffect(() => {
-		requestServer('fetchPosts', page, PAGINATION_LIMIT, searchPhrase).then((posts) => {
-			setPosts(posts.res.posts);
-			setLastPage(getLastPageFromLinks(posts.res.links));
-		});
+		request(`/posts?search=${searchPhrase}&page=${page}&limit=${PAGINATION_LIMIT}`).then(
+			({data: {posts, lastPage}}) => {
+				setPosts(posts);
+				setLastPage(lastPage);
+			}
+		);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [requestServer, page, shouldSearch]);
+	}, [page, shouldSearch]);
 	
 	const startDelayedSearch = useMemo(() => debounce(setShouldSearch, 1000), []);
 	
-	const onSearch = ({ target }) => {
+	const onSearch = ({target}) => {
 		setSearchPhrase(target.value);
 		startDelayedSearch(!shouldSearch);
 	};
@@ -46,7 +46,7 @@ const MainContainer = ({ className }) => {
 							            title,
 							            imageUrl,
 							            publishedAt,
-							            commentsCount,
+							            comments,
 						            }) => (
 							<PostCard
 								key={id}
@@ -54,7 +54,7 @@ const MainContainer = ({ className }) => {
 								title={title}
 								imageUrl={imageUrl}
 								publishedAt={publishedAt}
-								commentsCount={commentsCount}
+								commentsCount={comments.length}
 							/>
 						))}
 					</div>

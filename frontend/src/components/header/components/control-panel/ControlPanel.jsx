@@ -1,16 +1,15 @@
 import styled from 'styled-components';
-import { Icon } from '../../../icon/icon.jsx';
-import { Link, useNavigate } from 'react-router-dom';
-import { Button } from '../../../UI/index.js';
-import { ROLE } from '../../../../constants/index.js';
-import { useDispatch, useSelector } from 'react-redux';
+import {Icon} from '../../../icon/icon.jsx';
+import {Link, useNavigate} from 'react-router-dom';
+import {Button} from '../../../UI/index.js';
+import {ROLE} from '../../../../constants/index.js';
+import {useDispatch, useSelector} from 'react-redux';
 import {
 	selectUserLogin,
 	selectUserRole,
-	selectUserSession,
 } from '../../../../selectors';
-import { logout } from '../../../../actions';
-import { checkAccess } from '../../../../utils/index.js';
+import {logout} from '../../../../actions';
+import {checkAccess} from '../../../../utils/index.js';
 
 const RightAligned = styled.div`
 	display: flex;
@@ -35,17 +34,16 @@ const UserName = styled.span`
 	font-weight: bold;
 `;
 
-const ControlPanelContainer = ({ className }) => {
+const ControlPanelContainer = ({className}) => {
 	const navigate = useNavigate();
 	
 	const dispatch = useDispatch();
 	
 	const userRole = useSelector(selectUserRole);
 	const login = useSelector(selectUserLogin);
-	const session = useSelector(selectUserSession);
 	
 	const onLogout = () => {
-		dispatch(logout(session));
+		dispatch(logout());
 		sessionStorage.removeItem('userData');
 	};
 	
