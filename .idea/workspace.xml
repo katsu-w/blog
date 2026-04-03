@@ -1,0 +1,745 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="90f3fb53-1f18-486d-a19b-799e7702ea69" name="Changes" comment="Добавление заглушки изображения при её отсутствии у поста">
+      <change afterPath="$PROJECT_DIR$/backend/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/utils/request.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.prettierrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.prettierrc.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eslint.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/eslint.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/action-type.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/actions/action-type.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/add-comment-async.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/actions/add-comment-async.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/close-modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/actions/close-modal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/actions/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/load-post-async.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/actions/load-post-async.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/logout.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/actions/logout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/open-modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/actions/open-modal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/remove-comment-async.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/actions/remove-comment-async.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/remove-post-async.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/actions/remove-post-async.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/reset-post-data.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/actions/reset-post-data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/save-post-async.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/actions/save-post-async.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/set-post-data.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/actions/set-post-data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/set-user.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/actions/set-user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/api/add-session.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/api/add-session.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/api/add-user.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/api/add-user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/api/create-comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/api/create-comment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/api/create-post.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/api/create-post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/api/delete-comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/api/delete-comment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/api/delete-post.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/api/delete-post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/api/delete-session.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/api/delete-session.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/api/delete-user.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/api/delete-user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/api/get-comments.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/api/get-comments.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/api/get-post.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/api/get-post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/api/get-posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/api/get-posts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/api/get-roles.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/api/get-roles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/api/get-session.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/api/get-session.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/api/get-user.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/api/get-user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/api/get-users.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/api/get-users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/api/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/api/set-user-role.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/api/set-user-role.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/api/update-post.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/api/update-post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/constants/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/constants/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/constants/role.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/constants/role.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/operations/add-comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/operations/add-comment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/operations/authorize.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/operations/authorize.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/operations/fetch-post.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/operations/fetch-post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/operations/fetch-posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/operations/fetch-posts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/operations/fetch-roles.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/operations/fetch-roles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/operations/fetch-users.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/operations/fetch-users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/operations/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/operations/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/operations/logout.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/operations/logout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/operations/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/operations/register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/operations/remove-post-comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/operations/remove-post-comment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/operations/remove-post.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/operations/remove-post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/operations/remove-user.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/operations/remove-user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/operations/save-post.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/operations/save-post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/operations/update-user-role.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/operations/update-user-role.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/sessions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/sessions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/transformers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/transformers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/transformers/transform-comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/transformers/transform-comment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/transformers/transform-post.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/transformers/transform-post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/transformers/transform-user.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/transformers/transform-user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/utils/generate-date.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/utils/generate-date.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/utils/get-comments-count.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/utils/get-comments-count.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/utils/get-post-comments-with-author.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/utils/get-post-comments-with-author.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bff/utils/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/bff/utils/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/button/button.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/UI/button/button.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/h2/h2.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/UI/h2/h2.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/UI/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/input/input.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/UI/input/input.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/loader/loader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/UI/loader/loader.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/auth-form-error/auth-form-error.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/auth-form-error/auth-form-error.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/error/error.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/error/error.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/footer/footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/footer/footer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/header/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/header/components/control-panel/ControlPanel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/header/components/control-panel/ControlPanel.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/header/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/header/components/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/header/components/logo/Logo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/header/components/logo/Logo.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/icon/icon.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/icon/icon.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modal/modal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/modal/modal.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/private-content/private-content.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/private-content/private-content.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/error.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/constants/error.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/constants/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/pagination-limit.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/constants/pagination-limit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/prop-type.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/constants/prop-type.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/role.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/constants/role.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/db.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fonts/FontAwesome/FontAwesome.otf" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/fonts/FontAwesome/FontAwesome.otf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fonts/FontAwesome/fontawesome-webfont.eot" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/fonts/FontAwesome/fontawesome-webfont.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fonts/FontAwesome/fontawesome-webfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/fonts/FontAwesome/fontawesome-webfont.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fonts/FontAwesome/fontawesome-webfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/fonts/FontAwesome/fontawesome-webfont.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fonts/FontAwesome/fontawesome-webfont.woff" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/fonts/FontAwesome/fontawesome-webfont.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fonts/FontAwesome/fontawesome-webfont.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/fonts/FontAwesome/fontawesome-webfont.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fonts/font-awesome.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/fonts/font-awesome.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fonts/font-awesome.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/fonts/font-awesome.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/useResetForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/useResetForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/useServerRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/useServerRequest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/authorization/authorization.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/authorization/authorization.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/main/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/main/components/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/main/components/pagination/pagination.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/main/components/pagination/pagination.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/main/components/post-card/post-card.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/main/components/post-card/post-card.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/main/components/search/search.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/main/components/search/search.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/main/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/main/main.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/main/utils/debounce.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/main/utils/debounce.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/main/utils/get-last-page-from-links.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/main/utils/get-last-page-from-links.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/main/utils/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/main/utils/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/post/components/comments/comments.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/post/components/comments/comments.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/post/components/comments/components/comment/comment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/post/components/comments/components/comment/comment.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/post/components/comments/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/post/components/comments/components/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/post/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/post/components/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/post/components/post-content/post-content.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/post/components/post-content/post-content.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/post/components/post-form/post-form.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/post/components/post-form/post-form.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/post/components/post-form/utils/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/post/components/post-form/utils/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/post/components/post-form/utils/sanitize-content.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/post/components/post-form/utils/sanitize-content.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/post/components/special-panel/special-panel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/post/components/special-panel/special-panel.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/post/post.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/post/post.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/registration/registration.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/registration/registration.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/users/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/users/components/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/users/components/table-row/table-row.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/users/components/table-row/table-row.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/users/components/user-row/user-row.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/users/components/user-row/user-row.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/users/users.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/users/users.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/app-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/reducers/app-reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/reducers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/post-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/reducers/post-reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/posts-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/reducers/posts-reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/user-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/reducers/user-reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/users-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/reducers/users-reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selectors/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/selectors/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selectors/select-modal-heading.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/selectors/select-modal-heading.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selectors/select-modal-is-open.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/selectors/select-modal-is-open.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selectors/select-modal-on-cancel.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/selectors/select-modal-on-cancel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selectors/select-modal-on-confirm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/selectors/select-modal-on-confirm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selectors/select-post.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/selectors/select-post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selectors/select-user-id.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/selectors/select-user-id.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selectors/select-user-login.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/selectors/select-user-login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selectors/select-user-role.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/selectors/select-user-role.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selectors/select-user-session.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/selectors/select-user-session.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/check-access.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/utils/check-access.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/utils/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vite.config.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="BLOG-025" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;katsu-w&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/katsu-w/blog.git&quot;,
+    &quot;accountId&quot;: &quot;e728535d-c1eb-4e53-97a8-32f2d5840a51&quot;
+  },
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
+    },
+    &quot;owner&quot;: &quot;katsu-w&quot;,
+    &quot;repository&quot;: &quot;blog&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="35vvxlQuf9YiOP0PBIzhqp18fai" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;BLOG-026&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/work/web/blog/src/bff&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\work\\web\\blog\\node_modules\\prettier&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2024.3.5\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\work\web\blog\src\bff" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\work\web\blog\backend" />
+      <recent name="C:\work\web\blog\frontend" />
+      <recent name="C:\work\web\blog\src\bff\utils" />
+      <recent name="C:\work\web\blog\src\bff\api" />
+      <recent name="C:\work\web\blog\src\bff\operations" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="npm dev" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-WS-243.26053.12" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="90f3fb53-1f18-486d-a19b-799e7702ea69" name="Changes" comment="" />
+      <created>1764003608700</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1764003608700</updated>
+      <workItem from="1764003609774" duration="4736000" />
+      <workItem from="1764091204834" duration="3755000" />
+      <workItem from="1764173734842" duration="5974000" />
+      <workItem from="1764264663738" duration="9901000" />
+      <workItem from="1764354194163" duration="2435000" />
+      <workItem from="1764579973117" duration="7429000" />
+      <workItem from="1764670347640" duration="4911000" />
+      <workItem from="1764754357710" duration="4681000" />
+      <workItem from="1764846509591" duration="2718000" />
+      <workItem from="1764932674978" duration="3506000" />
+      <workItem from="1765215564619" duration="6187000" />
+      <workItem from="1765305925827" duration="6116000" />
+      <workItem from="1765390598960" duration="2081000" />
+      <workItem from="1765473796764" duration="4884000" />
+      <workItem from="1765569306972" duration="5136000" />
+      <workItem from="1765789823345" duration="7790000" />
+      <workItem from="1765903846380" duration="5671000" />
+      <workItem from="1765909613985" duration="2963000" />
+      <workItem from="1765912630483" duration="2266000" />
+      <workItem from="1765993875238" duration="4342000" />
+      <workItem from="1766083606145" duration="5908000" />
+      <workItem from="1766089610121" duration="1160000" />
+      <workItem from="1766168114944" duration="4903000" />
+      <workItem from="1766254261828" duration="1802000" />
+      <workItem from="1766501041003" duration="7389000" />
+      <workItem from="1766595765479" duration="4777000" />
+      <workItem from="1766682836715" duration="9310000" />
+      <workItem from="1766775076200" duration="285000" />
+      <workItem from="1766999486863" duration="3253000" />
+      <workItem from="1767641688342" duration="7665000" />
+      <workItem from="1767722843641" duration="4032000" />
+      <workItem from="1767809625673" duration="3299000" />
+      <workItem from="1767981406214" duration="6756000" />
+      <workItem from="1768213646655" duration="3676000" />
+      <workItem from="1768300316370" duration="901000" />
+      <workItem from="1768385864961" duration="3614000" />
+      <workItem from="1768840327229" duration="8502000" />
+      <workItem from="1768926548474" duration="3774000" />
+      <workItem from="1769016823694" duration="3636000" />
+      <workItem from="1769189625757" duration="3114000" />
+      <workItem from="1769597477301" duration="2072000" />
+      <workItem from="1770050892993" duration="5909000" />
+      <workItem from="1770144758221" duration="249000" />
+      <workItem from="1770227679606" duration="4762000" />
+      <workItem from="1770314416720" duration="59000" />
+      <workItem from="1774726803428" duration="1900000" />
+      <workItem from="1774740739181" duration="928000" />
+      <workItem from="1775234379593" duration="972000" />
+    </task>
+    <task id="LOCAL-00007" summary="Функционал и стили шапки">
+      <option name="closed" value="true" />
+      <created>1764583935903</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1764583935903</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Реализация футера и подключение API с погодой">
+      <option name="closed" value="true" />
+      <created>1764588520587</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1764588520587</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Реализация страницы авторизации с формой на RHF и yup">
+      <option name="closed" value="true" />
+      <created>1764675655261</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1764675655261</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Вынос инпута в отдельный файл + стилизация">
+      <option name="closed" value="true" />
+      <created>1764761357372</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1764761357372</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Вынос кнопки в отдельный компонент + ссылка на регистрацию">
+      <option name="closed" value="true" />
+      <created>1764849155295</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1764849155295</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Финальная доработка страницы авторизации">
+      <option name="closed" value="true" />
+      <created>1764936148140</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1764936148140</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Подключение redux и добавление логики создания сессии">
+      <option name="closed" value="true" />
+      <created>1765219274155</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1765219274155</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Реализация функции входа в аккаунт и отображение данных в шапке">
+      <option name="closed" value="true" />
+      <created>1765221782972</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1765221782972</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Доработка стилей панели управления">
+      <option name="closed" value="true" />
+      <created>1765307203246</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1765307203246</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Переадресация на главную и очистка формы после авторизации">
+      <option name="closed" value="true" />
+      <created>1765308761494</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1765308761494</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Реализация страницы регистрации">
+      <option name="closed" value="true" />
+      <created>1765311964487</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1765311964487</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Вёрстка страницы пользователи">
+      <option name="closed" value="true" />
+      <created>1765392760924</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1765392760924</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Вёрстка таблицы с пользователями">
+      <option name="closed" value="true" />
+      <created>1765479013958</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1765479013958</updated>
+    </task>
+    <task id="LOCAL-00020" summary="refactor bff ( server ) structure">
+      <option name="closed" value="true" />
+      <created>1765571958778</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1765571958778</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Починил стили у user-row на странице users">
+      <option name="closed" value="true" />
+      <created>1765574479996</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1765574479996</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Получение ролей и проверка доступа">
+      <option name="closed" value="true" />
+      <created>1765791596256</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1765791596256</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Запрос пользователей и ролей, и отображение страницы users или ошибки">
+      <option name="closed" value="true" />
+      <created>1765798432666</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1765798432666</updated>
+    </task>
+    <task id="LOCAL-00024" summary="добавление трансформера и багфикс">
+      <option name="closed" value="true" />
+      <created>1765906313019</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1765906313019</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Корректировка вёрстки и переключатель ролей">
+      <option name="closed" value="true" />
+      <created>1765908929966</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1765908929966</updated>
+    </task>
+    <task id="LOCAL-00026" summary="форматирование prettier">
+      <option name="closed" value="true" />
+      <created>1765909592315</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1765909592315</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Сохранение роли">
+      <option name="closed" value="true" />
+      <created>1765913092658</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1765913092658</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Удаление пользователя">
+      <option name="closed" value="true" />
+      <created>1765915245140</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1765915245140</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Создание страницы статьи и получение данных к ней">
+      <option name="closed" value="true" />
+      <created>1765998197617</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1765998197617</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Вёрстка контента статьи">
+      <option name="closed" value="true" />
+      <created>1766087164105</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1766087164106</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Вёрстка блока комментариев к статье">
+      <option name="closed" value="true" />
+      <created>1766089995663</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1766089995663</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Добавление функционала создание комментария">
+      <option name="closed" value="true" />
+      <created>1766173866965</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1766173866965</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Сохранение сессии в session storage">
+      <option name="closed" value="true" />
+      <created>1766256065319</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1766256065319</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Перенос хранения сессий в JSON Server и работа с блоком комментариев">
+      <option name="closed" value="true" />
+      <created>1766507909569</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1766507909569</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Добавление функционала удаления комментария и реализация модального окна">
+      <option name="closed" value="true" />
+      <created>1766599937575</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1766599937575</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Реализация функционала редактирования поста">
+      <option name="closed" value="true" />
+      <created>1766691569203</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1766691569203</updated>
+    </task>
+    <task id="LOCAL-00037" summary=".">
+      <option name="closed" value="true" />
+      <created>1766775140769</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1766775140769</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Реализация удаления статьи">
+      <option name="closed" value="true" />
+      <created>1767002534352</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1767002534352</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Реализация страницы создания новой статьи">
+      <option name="closed" value="true" />
+      <created>1767650837255</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1767650837255</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Исправление сброса полей при переходе на страницу создания новой статьи">
+      <option name="closed" value="true" />
+      <created>1767728448856</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1767728448856</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Создание главной страницы и получение всех постов с количеством комментариев">
+      <option name="closed" value="true" />
+      <created>1767814748039</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1767814748039</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Вёрстка главной страницы">
+      <option name="closed" value="true" />
+      <created>1767985243936</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1767985243936</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Замена изображений постов и выравнивание расположения постов">
+      <option name="closed" value="true" />
+      <created>1767987252493</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1767987252493</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Реализация пагинации">
+      <option name="closed" value="true" />
+      <created>1768217433657</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1768217433657</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Добавлен условный рендеринг пагинации">
+      <option name="closed" value="true" />
+      <created>1768303578488</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1768303578488</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Реализация поиска">
+      <option name="closed" value="true" />
+      <created>1768389363012</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1768389363012</updated>
+    </task>
+    <task id="LOCAL-00047" summary="перенос пагинации на более старую версию json server + loader + теперь поиск работает">
+      <option name="closed" value="true" />
+      <created>1768845909027</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1768845909027</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Добавление задержки перед отправлением запроса на поиск">
+      <option name="closed" value="true" />
+      <created>1768849138855</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1768849138855</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Переработка стилей на главной странице">
+      <option name="closed" value="true" />
+      <created>1768930595207</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1768930595207</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Создание компонента с ошибкой и его подключение к несуществующим страницам постов">
+      <option name="closed" value="true" />
+      <created>1769019920843</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1769019920843</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Переработка компонента-фильтра отображения ошибки или контента">
+      <option name="closed" value="true" />
+      <created>1769194553042</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1769194553043</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Проверка доступа действий предназначенных для администратора">
+      <option name="closed" value="true" />
+      <created>1769599543094</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1769599543094</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Реализация изменения доступа к кнопкам">
+      <option name="closed" value="true" />
+      <created>1770055937274</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1770055937274</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Типизация компонентов (через деприкейтед проптайпс хд)">
+      <option name="closed" value="true" />
+      <created>1770231195590</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1770231195590</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Добавление заглушки изображения при её отсутствии у поста">
+      <option name="closed" value="true" />
+      <created>1770231699782</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1770231699782</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Сохранение сессии в session storage" />
+    <MESSAGE value="Перенос хранения сессий в JSON Server" />
+    <MESSAGE value="Перенос хранения сессий в JSON Server и работа с блоком комментариев" />
+    <MESSAGE value="Добавление функционала удаления комментария и реализация модального окна" />
+    <MESSAGE value="Реализация функционала редактирования поста" />
+    <MESSAGE value="." />
+    <MESSAGE value="Реализация удаления статьи" />
+    <MESSAGE value="Реализация страницы создания новой статьи" />
+    <MESSAGE value="Исправление сброса полей при переходе на страницу создания новой статьи" />
+    <MESSAGE value="Создание главной страницы и получение всех постов с количеством комментариев" />
+    <MESSAGE value="Вёрстка главной страницы" />
+    <MESSAGE value="Замена изображений постов и выравнивание расположения постов" />
+    <MESSAGE value="Реализация пагинации" />
+    <MESSAGE value="Добавлен условный рендеринг пагинации" />
+    <MESSAGE value="Реализация поиска" />
+    <MESSAGE value="перенос пагинации на более старую версию json server + loader" />
+    <MESSAGE value="перенос пагинации на более старую версию json server + loader + теперь поиск работает" />
+    <MESSAGE value="Добавление задержки перед отправлением запроса на поиск" />
+    <MESSAGE value="Переработка стилей на главной странице" />
+    <MESSAGE value="Создание компонента с ошибкой и его подключение к несуществующим страницам постов" />
+    <MESSAGE value="Переработка компонента-фильтра отображения ошибки или контента" />
+    <MESSAGE value="Проверка доступа действий предназначенных для администратора" />
+    <MESSAGE value="Реализация изменения доступа к кнопкам" />
+    <MESSAGE value="Типизация компонентов (через деприкейтед проптайпс хд)" />
+    <MESSAGE value="Добавление заглушки изображения при её отсутствии у поста" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавление заглушки изображения при её отсутствии у поста" />
+  </component>
+</project>
